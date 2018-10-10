@@ -1,0 +1,21 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../project_1.srcs/sources_1/new/EX.v" \
+"../../../../project_1.srcs/sources_1/new/ID.v" \
+"../../../../project_1.srcs/sources_1/new/IF.v" \
+"../../../../project_1.srcs/sources_1/new/adder.v" \
+"../../../../project_1.srcs/sources_1/new/alu.v" \
+"../../../../project_1.srcs/sources_1/new/alu_control.v" \
+"../../../../project_1.srcs/sources_1/new/control_id.v" \
+"../../../../project_1.srcs/sources_1/new/control_pc.v" \
+"../../../../project_1.srcs/sources_1/new/cortocircuito.v" \
+"../../../../project_1.srcs/sources_1/new/hazard.v" \
+"../../../../project_1.srcs/sources_1/new/prog_mem.v" \
+"../../../../project_1.srcs/sources_1/new/register_id.v" \
+"../../../IF_ID_EX_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
