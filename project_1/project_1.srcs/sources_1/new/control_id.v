@@ -41,6 +41,9 @@ output reg [2 - 1 : 0] out_wb;
 
 
 always@(*)begin
+out_ex = 10'b0000000000;
+out_mem = 9'b000000000;
+out_wb = 2'b00;
 case(in_opcode)
   //Instruccion tipo R
   6'b000000: begin

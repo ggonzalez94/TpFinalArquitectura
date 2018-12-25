@@ -27,8 +27,11 @@ module register_id(
     in_rt,
     in_wdata,
     in_reg_write,
+    in_addr_wire,
     out_data1,
     out_data2,
+    out_wire_reg,
+    out_jump_reg,
     clk,
     reset
     );
@@ -42,6 +45,7 @@ input [NB_addr - 1 : 0] in_rs;
 input [NB_addr - 1 : 0] in_rd;
 input [NB_addr - 1 : 0] in_rt;
 input [NB_data - 1 : 0] in_wdata;
+input [NB_addr - 1 : 0] in_addr_wire;
 
 //Enable de escritura de registros
 input in_reg_write;
@@ -50,8 +54,13 @@ input reset;
 
 output reg [NB_data - 1 : 0] out_data1;
 output reg [NB_data - 1 : 0] out_data2;
+output [NB_data - 1 : 0] out_wire_reg;
+output [NB_data - 1 : 0] out_jump_reg;
 
 reg [NB_data - 1 : 0] registros [N_regs - 1 : 0];
+
+assign out_wire_reg = registros[in_addr_wire];
+assign out_jump_reg = registros[in_rs];
 
 generate
     integer ram_index;

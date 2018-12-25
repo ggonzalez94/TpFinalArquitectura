@@ -30,17 +30,20 @@ module data_mem #(
 ) (
   input [clogb2(RAM_DEPTH-1)-1:0] addra, // Write address bus, width determined from RAM_DEPTH
   input [clogb2(RAM_DEPTH-1)-1:0] addrb, // Read address bus, width determined from RAM_DEPTH
+  input [clogb2(RAM_DEPTH-1)-1:0] addrw,
   input [RAM_WIDTH-1:0] dina,          // RAM input data
   input clka,                          // Clock
   input wea,                           // Write enable
   input enb,                           // Read Enable, for additional power savings, disable when not in use
-  input rsta,                          // Output reset (does not affect memory contents)
 //  input regceb,                        // Output register enable
-  output [RAM_WIDTH-1:0] doutb         // RAM output data
+  output [RAM_WIDTH-1:0] doutb,         // RAM output data
+  output [RAM_WIDTH-1:0] doutw
 );
   // reg enb = 1'b1;
+  reg rsta = 1'b0;
   reg [RAM_WIDTH-1:0] BRAM [RAM_DEPTH-1:0];
   reg [RAM_WIDTH-1:0] ram_data = {RAM_WIDTH{1'b0}};
+  assign doutw = BRAM[addrw];
 
   // The following code either initializes the memory values to a specified file or to all zeros to match hardware
   generate

@@ -33,6 +33,7 @@ input [5 : 0] in_function;
 output reg[3 : 0] out_alu_code;
 
 always@(*)begin
+out_alu_code = 4'b0000;
   case (in_alu_op)
     3'b000: begin
       case (in_function)

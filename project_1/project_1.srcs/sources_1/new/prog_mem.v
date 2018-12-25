@@ -32,14 +32,14 @@ module prog_mem #(
   input [clogb2(RAM_DEPTH-1)-1:0] addra,  // Address bus, width determined from RAM_DEPTH
   input [(NB_COL*COL_WIDTH)-1:0] dina,  // RAM input data
   input clka,                           // Clock
-  input [NB_COL-1:0] wea,               // Byte-write enable
+  input  wea,               // Byte-write enable
   input ena,                            // RAM Enable, for additional power savings, disable port when not in use
-  input rsta,                           // Output reset (does not affect memory contents)
+  // input rsta,                           // Output reset (does not affect memory contents)
 //  input regcea,                         // Output register enable
   output [(NB_COL*COL_WIDTH)-1:0] douta, // RAM output data
   output out_halt
 );
-
+  reg rsta = 1'b0;
   reg [(NB_COL*COL_WIDTH)-1:0] BRAM [RAM_DEPTH-1:0];
   reg [(NB_COL*COL_WIDTH)-1:0] ram_data = {(NB_COL*COL_WIDTH){1'b0}};
   reg regcea = 1'b1;
@@ -56,21 +56,13 @@ module prog_mem #(
           BRAM[ram_index] = {(NB_COL*COL_WIDTH){1'b0}};
     end
   endgenerate
-
-  always @(negedge clka)
-    if (ena) begin
+ 
+  always @(negedge clka) begin
+    if (wea)
+      BRAM[addra] <= dina;
+    if (ena) 
       ram_data <= BRAM[addra];
-    end
-
-  generate
-  genvar i;
-     for (i = 0; i < NB_COL; i = i+1) begin: byte_write
-       always @(posedge clka)
-         if (ena)
-           if (wea[i])
-             BRAM[addra][(i+1)*COL_WIDTH-1:i*COL_WIDTH] <= dina[(i+1)*COL_WIDTH-1:i*COL_WIDTH];
-      end
-  endgenerate
+  end
 
   //  The following code generates HIGH_PERFORMANCE (use output register) or LOW_LATENCY (no output register)
   generate

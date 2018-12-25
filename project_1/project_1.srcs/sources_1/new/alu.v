@@ -50,8 +50,8 @@ assign flag_zero  = (A == B) ?  (1'b1) : (1'b0);
 // assign flag_zero  = (x == `NB_X'h00) ?  (1'b1) : (1'b0);
 
 always@(*)begin
-    case(alu_code)
-                                
+    x = A;
+    case(alu_code)                                
         4'b0000  :  x = B << A; //shift left
         4'b0001  :  x = B >> A; // shift right logico  
         4'b0010  :  x = B >>> A; // shift right aritmetico

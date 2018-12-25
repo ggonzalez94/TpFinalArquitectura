@@ -26,6 +26,9 @@ module IF( in_flush,
            in_pc_jump_addr,
            in_pc_branch_addr,
            in_pc_jump_reg,
+           in_wea_prog,
+           in_prog_instruction,
+           in_prog_addr,
            in_ctl_jump,
            in_ctl_jump_reg,
            in_ctl_branch,
@@ -35,6 +38,7 @@ module IF( in_flush,
 );
 
 parameter NB = `NB;
+parameter NB_mem = 11;
 
  input [25 : 0] in_pc_jump_addr;
  input [NB - 1 : 0] in_pc_branch_addr;
@@ -46,6 +50,9 @@ parameter NB = `NB;
  input reset;
  input in_ctl_stall;
  input in_flush;
+ input in_wea_prog;
+ input [NB - 1 : 0] in_prog_instruction;
+ input [NB_mem - 1 : 0] in_prog_addr;
  
  output reg [NB - 1 : 0] instruction_out;
  output reg [NB - 1 : 0] adder_out;
@@ -57,9 +64,10 @@ parameter NB = `NB;
  wire [NB - 1 : 0] connect_instruction;
  wire [NB - 1 : 0] connect_adder;
  wire connect_halt;
- 
+ wire [NB_mem - 1 : 0] connect_addr_mem;
 //  assign connect_pc = (mux_ctl == 1'b1) ? jmp_reg : connect_adder;
- assign connect_pc_mem = (connect_halt == 1'b0 ) ? pc : connect_pc_mem;
+ assign connect_pc_mem = (connect_halt == 1'b0 ) ? pc : pc;
+ assign connect_addr_mem = (in_wea_prog)? in_prog_addr : connect_pc_mem[10:0]; 
 
  
 
@@ -84,17 +92,17 @@ parameter NB = `NB;
     .INIT_FILE("/home/gustav/ArquiGustavoWolfmann/instructions.hex")                                            // Specify name/location of RAM initialization file if using one (leave blank if not)
     // .INIT_FILE("E:/datos_mips/instructions.hex")                                            // Specify name/location of RAM initialization file if using one (leave blank if not)
   ) u_prog_mem (
-    .addra(connect_pc_mem[10:0]),   // Write address bus, width determined from RAM_DEPTH
-    .dina(32'b0000),     // RAM input data, width determined from RAM_WIDTH
+    .addra(connect_addr_mem),   // Write address bus, width determined from RAM_DEPTH
+    .dina(in_prog_instruction),     // RAM input data, width determined from RAM_WIDTH
     .clka(clk),     // Clock
-    .wea(1'b0),       // Write enable
+    .wea(in_wea_prog),       // Write enable
     .ena((!in_ctl_stall)&&(!reset)),
-    .rsta(reset),
     .out_halt(connect_halt),
     .douta(connect_instruction)    // RAM output data, width determined from RAM_WIDTH
   );
 
-always@(posedge clk)begin
+
+always@(posedge clk or posedge reset)begin
     if(reset == 1'b1) begin
         pc <= 32'b0000;
         adder_out <= 32'b0000;
@@ -111,7 +119,7 @@ always@(posedge clk)begin
     end
 end
 
-always@(*)begin 
+always@(posedge clk)begin 
 if ( in_flush==1'b1 )
     instruction_out <= 32'h00000000;
 else

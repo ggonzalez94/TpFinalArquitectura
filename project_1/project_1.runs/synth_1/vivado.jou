@@ -2,11 +2,11 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Mon Jul 30 15:31:39 2018
-# Process ID: 10676
+# Start of session at: Sat Dec 22 19:16:54 2018
+# Process ID: 32021
 # Current directory: /home/gustav/ArquiGustavoWolfmann/project_1/project_1.runs/synth_1
-# Command line: vivado -log top_pipe.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_pipe.tcl
-# Log file: /home/gustav/ArquiGustavoWolfmann/project_1/project_1.runs/synth_1/top_pipe.vds
+# Command line: vivado -log super_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source super_top.tcl
+# Log file: /home/gustav/ArquiGustavoWolfmann/project_1/project_1.runs/synth_1/super_top.vds
 # Journal file: /home/gustav/ArquiGustavoWolfmann/project_1/project_1.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
-source top_pipe.tcl -notrace
+source super_top.tcl -notrace

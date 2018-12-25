@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010iclg225-1L" LaunchTime="1532979095">
-  <File Type="VDS-TIMING-PB" Name="top_pipe_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="top_pipe_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="top_pipe.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="top_pipe_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="top_pipe_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="top_pipe_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="top_pipe.vds"/>
-  <File Type="REPORTS-TCL" Name="top_pipe_reports.tcl"/>
-  <File Type="PA-TCL" Name="top_pipe.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7z010iclg225-1L" LaunchTime="1545520611">
+  <File Type="VDS-TIMING-PB" Name="super_top_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="super_top_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="super_top.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="super_top_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="super_top_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="super_top_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="super_top.vds"/>
+  <File Type="REPORTS-TCL" Name="super_top_reports.tcl"/>
+  <File Type="PA-TCL" Name="super_top.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/EX.v">
@@ -95,6 +95,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/estados.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/hazard.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -123,9 +130,16 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/super_top.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="top_pipe"/>
+      <Option Name="TopModule" Val="super_top"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>

@@ -44,6 +44,8 @@ module EX(
     in_c_wb_data,
     in_c_mem_data,
     in_rs,
+    in_halt,
+    out_halt,
     out_branch,
     out_alu,
     out_reg_dest,
@@ -78,6 +80,9 @@ input [NB_addr - 1 : 0] in_c_rd_34;
 input [NB_addr - 1 : 0] in_c_rd_45;
 input [NB_data - 1 : 0] in_c_wb_data;
 input [NB_data - 1 : 0] in_c_mem_data;
+input in_halt;
+
+output reg out_halt;
 
 output reg [NB_data - 1 : 0] out_branch;
 output reg [NB_data - 1 : 0] out_alu;
@@ -141,7 +146,7 @@ u_cortocircuito( .in_reg_w_34(in_c_reg_w_34), .in_reg_w_45(in_c_reg_w_45), .in_r
 
 
 
-always @(posedge clk) begin
+always @(posedge clk or posedge reset) begin
   if (reset || in_flush) begin
     out_mem <= 3'b000;
     out_wb <= 3'b00;
@@ -151,7 +156,9 @@ always @(posedge clk) begin
     out_w_data <= {NB_data{1'b0}};
     out_sign <= 1'b0;
     out_zero <= 1'b0;
+    out_halt <= 1'b0;
   end else begin
+    out_halt <= in_halt;
     out_mem <= in_mem;
     out_wb <= in_wb;
     out_branch <= in_branch + in_inmediato;

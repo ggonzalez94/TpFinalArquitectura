@@ -17,9 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {HDL 9-1061} -limit 100000
-set_msg_config -id {HDL 9-1654} -limit 100000
 create_project -in_memory -part xc7z010iclg225-1L
 
 set_param project.singleFileAddWarning.threshold 0
@@ -44,10 +41,12 @@ read_verilog -library xil_defaultlib {
   /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/control_pc.v
   /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/cortocircuito.v
   /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/data_mem.v
+  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v
   /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/hazard.v
   /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/prog_mem.v
   /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/register_id.v
   /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/top_pipe.v
+  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/super_top.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -60,12 +59,12 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
 
-synth_design -top top_pipe -part xc7z010iclg225-1L
+synth_design -top super_top -part xc7z010iclg225-1L
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef top_pipe.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file top_pipe_utilization_synth.rpt -pb top_pipe_utilization_synth.pb"
+write_checkpoint -force -noxdef super_top.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file super_top_utilization_synth.rpt -pb super_top_utilization_synth.pb"
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]
