@@ -3,7 +3,6 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 08/22/2017 05:04:46 PM
 // Design Name: 
 // Module Name: alu
 // Project Name: 
@@ -21,7 +20,8 @@
 
 `define NB 32
 
-module IF( instruction_out,
+module IF( in_flush,
+           instruction_out,
            adder_out,
            in_pc_jump_addr,
            in_pc_branch_addr,
@@ -45,6 +45,7 @@ parameter NB = `NB;
  input clk;
  input reset;
  input in_ctl_stall;
+ input in_flush;
  
  output reg [NB - 1 : 0] instruction_out;
  output reg [NB - 1 : 0] adder_out;
@@ -55,9 +56,11 @@ parameter NB = `NB;
  wire [NB - 1 : 0] connect_pc_mem;
  wire [NB - 1 : 0] connect_instruction;
  wire [NB - 1 : 0] connect_adder;
+ wire connect_halt;
  
 //  assign connect_pc = (mux_ctl == 1'b1) ? jmp_reg : connect_adder;
- assign connect_pc_mem = pc;
+ assign connect_pc_mem = (connect_halt == 1'b0 ) ? pc : connect_pc_mem;
+
  
 
  adder # (.NB(NB))
@@ -78,7 +81,7 @@ parameter NB = `NB;
     .COL_WIDTH(8),
     .RAM_DEPTH(2048),                     // Specify RAM depth (number of entries)
     .RAM_PERFORMANCE("LOW_LATENCY"), // Select "HIGH_PERFORMANCE" or "LOW_LATENCY" 
-    .INIT_FILE("C:/Users/nati/Documents/FACULTAD/QUINTO/Aquitectura/PracticoArqui/mips/files/instructions.hex")                                            // Specify name/location of RAM initialization file if using one (leave blank if not)
+    .INIT_FILE("/home/gustav/ArquiGustavoWolfmann/instructions.hex")                                            // Specify name/location of RAM initialization file if using one (leave blank if not)
     // .INIT_FILE("E:/datos_mips/instructions.hex")                                            // Specify name/location of RAM initialization file if using one (leave blank if not)
   ) u_prog_mem (
     .addra(connect_pc_mem[10:0]),   // Write address bus, width determined from RAM_DEPTH
@@ -87,6 +90,7 @@ parameter NB = `NB;
     .wea(1'b0),       // Write enable
     .ena((!in_ctl_stall)&&(!reset)),
     .rsta(reset),
+    .out_halt(connect_halt),
     .douta(connect_instruction)    // RAM output data, width determined from RAM_WIDTH
   );
 
@@ -95,8 +99,8 @@ always@(posedge clk)begin
         pc <= 32'b0000;
         adder_out <= 32'b0000;
     end
-    else begin
-        if (in_ctl_stall == 1'b1) begin
+    else  begin
+        if (in_ctl_stall == 1'b1 || connect_halt == 1'b1) begin
         pc <= pc;
         adder_out <= adder_out;
         end
@@ -108,7 +112,11 @@ always@(posedge clk)begin
 end
 
 always@(*)begin 
-instruction_out <= connect_instruction;
+if ( in_flush==1'b1 )
+    instruction_out <= 32'h00000000;
+else
+    instruction_out <= connect_instruction;
+
 end
 
 endmodule

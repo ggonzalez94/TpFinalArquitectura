@@ -26,6 +26,7 @@
 module EX(
     clk,
     reset,
+    in_flush,
     in_branch,
     in_ex,
     in_mem,
@@ -58,8 +59,9 @@ parameter NB_addr = `NB_addr;
 
 input clk;
 input reset;
+input in_flush;
 input [NB_data - 1 : 0] in_branch;
-input [8 - 1 : 2] in_ex;
+input [10 - 1 : 2] in_ex;
 input [9 - 1 : 0] in_mem;
 input [2 - 1 : 0] in_wb;
 input [NB_data - 1 : 0] in_reg1;
@@ -101,6 +103,7 @@ wire [1 : 0] connect_c_mux_b;
 wire [NB_data - 1 : 0] connect_mux_ac;
 wire [NB_data - 1 : 0] connect_mux_bc;
 
+wire [1:0] ctl_alu_src_a;
 //assign connect_c_mux_a
 
 assign connect_mux_ac = (connect_c_mux_a == 2'b00) ? in_reg1 : 
@@ -109,10 +112,18 @@ assign connect_mux_ac = (connect_c_mux_a == 2'b00) ? in_reg1 :
 assign connect_mux_bc = (connect_c_mux_b == 2'b00) ? in_reg2 : 
                         (connect_c_mux_b == 2'b01) ? in_c_mem_data : in_c_wb_data;
 
-assign in_alu_a = (in_ex[2] == 1'b0) ? connect_mux_ac : {{(NB_data-5){1'b0}},in_shamt};
-assign in_alu_b = (in_ex[3] == 1'b0) ? connect_mux_bc : in_inmediato;
+//assign in_alu_a = (in_ex[2] == 1'b0) ? connect_mux_ac : {{(NB_data-5){1'b0}},in_shamt};
+assign in_alu_a =   (in_ex[2] == 1'b1) ? {{(NB_data-5){1'b0}},in_shamt} :
+                    (in_ex[9] == 1'b1) ? in_branch :
+                    connect_mux_ac; 
+//assign in_alu_b = (in_ex[3] == 1'b0) ? connect_mux_bc : in_inmediato;
+assign in_alu_b =   (in_ex[3] == 1'b1) ? in_inmediato : 
+                    (in_ex[9] == 1'b1) ? `NB_addr'd1 :
+                    connect_mux_bc;
 
-assign connect_reg_dest = (in_ex[7] == 1'b0) ? in_rt : in_rd;
+assign connect_reg_dest = (in_ex[8 : 7] == 2'b00) ? in_rt : 
+                          (in_ex[8 : 7] == 2'b01) ? in_rd :
+                          (in_ex[8 : 7] == 2'b10) ? `NB_addr'd31 : {NB_addr{1'b0}};
 
 alu
 u_alu(.A(in_alu_a), .B(in_alu_b), .alu_code(connect_alu_code), .x(connect_alu_out), 
@@ -131,13 +142,15 @@ u_cortocircuito( .in_reg_w_34(in_c_reg_w_34), .in_reg_w_45(in_c_reg_w_45), .in_r
 
 
 always @(posedge clk) begin
-  if (reset) begin
+  if (reset || in_flush) begin
     out_mem <= 3'b000;
     out_wb <= 3'b00;
     out_branch <= {NB_data{1'b0}};
     out_alu <= {NB_data{1'b0}};
     out_reg_dest <= {NB_data{1'b0}};
     out_w_data <= {NB_data{1'b0}};
+    out_sign <= 1'b0;
+    out_zero <= 1'b0;
   end else begin
     out_mem <= in_mem;
     out_wb <= in_wb;

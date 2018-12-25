@@ -36,7 +36,8 @@ module prog_mem #(
   input ena,                            // RAM Enable, for additional power savings, disable port when not in use
   input rsta,                           // Output reset (does not affect memory contents)
 //  input regcea,                         // Output register enable
-  output [(NB_COL*COL_WIDTH)-1:0] douta // RAM output data
+  output [(NB_COL*COL_WIDTH)-1:0] douta, // RAM output data
+  output out_halt
 );
 
   reg [(NB_COL*COL_WIDTH)-1:0] BRAM [RAM_DEPTH-1:0];
@@ -56,7 +57,7 @@ module prog_mem #(
     end
   endgenerate
 
-  always @(posedge clka)
+  always @(negedge clka)
     if (ena) begin
       ram_data <= BRAM[addra];
     end
@@ -77,6 +78,7 @@ module prog_mem #(
 
       // The following is a 1 clock cycle read latency at the cost of a longer clock-to-out timing
        assign douta = ram_data;
+       assign out_halt = & douta;
 
     end else begin: output_register
 

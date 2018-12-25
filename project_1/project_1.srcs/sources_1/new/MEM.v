@@ -71,8 +71,7 @@ data_mem #(
     .RAM_WIDTH(32),
     .RAM_DEPTH(2048),                     // Specify RAM depth (number of entries)
     .RAM_PERFORMANCE("LOW_LATENCY"), // Select "HIGH_PERFORMANCE" or "LOW_LATENCY" 
-   .INIT_FILE("C:/Users/nati/Documents/FACULTAD/QUINTO/Aquitectura/PracticoArqui/mips/files/data_mem.txt") 
-    // .INIT_FILE("E:/datos_mips/data_mem.txt") 
+     .INIT_FILE("E:/datos_mips/data_mem.txt") 
 
   ) u_data_mem (
     .addra(in_address),         // Write address bus, width determined from RAM_DEPTH

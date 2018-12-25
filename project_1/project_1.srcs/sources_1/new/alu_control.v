@@ -52,6 +52,8 @@ always@(*)begin
 
         6'b101010: out_alu_code = 4'b1010;
 
+        6'b001001: out_alu_code = 4'b0011;     
+
       endcase
     end
     3'b001: out_alu_code = 4'b0011;

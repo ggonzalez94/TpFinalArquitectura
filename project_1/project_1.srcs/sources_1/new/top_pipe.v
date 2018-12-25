@@ -25,7 +25,9 @@
 
 module top_pipe(
     clk,
-    reset
+    reset,
+    out_pc,
+    out_halt
 );
 
 parameter NB_data = `NB_data;
@@ -33,6 +35,10 @@ parameter NB_addr = `NB_addr;
 
 input clk;
 input reset;
+
+output [NB_data - 1 : 0] out_pc;
+output out_halt;
+
 
 wire connect_ctl_branch;
 
@@ -56,7 +62,7 @@ wire [2 - 1 : 0] connect_wb_ex_mem;
 wire [9 - 1 : 0] connect_mem;
 wire [9 - 1 : 0] connect_mem_ex;
 
-wire [8 - 1 : 0] connect_ex;
+wire [10 - 1 : 0] connect_ex;
 
 wire [NB_data - 1 : 0] connect_branch_dir;
 
@@ -89,12 +95,17 @@ wire [NB_addr - 1 : 0] connect_rd_id_mem;
 wire [NB_addr - 1 : 0] connect_rs;
 wire connect_ctl_stall;
 wire out_sign;
+wire connect_flush;
+assign connect_flush = connect_ctl_branch;
+
+assign out_pc = connect_pc_if_id;
+assign out_halt = & connect_instruction_if_id;
 
 
 IF#(.NB(NB_data))
 u_IF (.instruction_out(connect_instruction_if_id),.adder_out(connect_pc_if_id),
         .in_pc_jump_addr(connect_jump_addr),.in_pc_branch_addr(connect_pc_branch_addr),
-        .in_pc_jump_reg(connect_pc_jump_reg),.in_ctl_jump(connect_ctl_jump),
+        .in_pc_jump_reg(connect_pc_jump_reg),.in_ctl_jump(connect_ctl_jump), .in_flush(connect_flush),
         .in_ctl_jump_reg(connect_ctl_jump_reg), .in_ctl_branch(connect_ctl_branch),
         .in_ctl_stall(connect_ctl_stall),
         .reset(reset), .clk(clk));
@@ -102,7 +113,7 @@ u_IF (.instruction_out(connect_instruction_if_id),.adder_out(connect_pc_if_id),
 ID#(.NB_addr(NB_addr), .NB_data(NB_data))
 u_ID(
     .in_instruction(connect_instruction_if_id), .in_branch(connect_pc_if_id), .in_reg_write(connect_reg_write), 
-    .in_wdata(connect_wdata_reg),
+    .in_wdata(connect_wdata_reg), .in_flush(connect_flush),
     .in_rd(connect_rd_id_mem), .clk(clk), .reset(reset), .out_jump_dir(connect_jump_addr), .out_branch(connect_branch_dir), 
     .out_ex(connect_ex), .out_mem(connect_mem), .out_wb(connect_wb), .out_reg1(connect_reg_1),
     .out_reg2(connect_reg_2), .out_shamt(connect_shamt), .out_rs(connect_rs),
@@ -110,10 +121,10 @@ u_ID(
     );
 
 EX#(.NB_addr(NB_addr), .NB_data(NB_data))
-u_EX( .clk(clk), .reset(reset), .in_branch(connect_branch_dir), .in_ex(connect_ex[7:2]), .in_mem(connect_mem), 
+u_EX( .clk(clk), .reset(reset), .in_branch(connect_branch_dir), .in_ex(connect_ex[10 - 1 : 2]), .in_mem(connect_mem), 
       .in_wb(connect_wb), .in_reg1(connect_reg_1), .in_reg2(connect_reg_2), .in_inmediato(connect_inmediato), 
       .in_shamt(connect_shamt), .in_rt(connect_rt), .in_rd(connect_rd), 
-      .in_c_reg_w_34(connect_wb_ex[1]),
+      .in_c_reg_w_34(connect_wb_ex[1]), .in_flush(connect_flush),
       .in_c_reg_w_45(connect_wb_ex_mem[1]),
       .in_c_rd_34(connect_reg_dst),
       .in_c_rd_45(connect_reg_dst_ex_mem),
