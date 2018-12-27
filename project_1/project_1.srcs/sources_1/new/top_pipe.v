@@ -44,9 +44,9 @@ module top_pipe(
 parameter NB_data = `NB_data;
 parameter NB_addr = `NB_addr;
 parameter NB_latch12 = 64;
-parameter NB_latch23 = 218;
-parameter NB_latch34 = 113;
-parameter NB_latch45 = 71;
+parameter NB_latch23 = 192;
+parameter NB_latch34 = 128;
+parameter NB_latch45 = 64;
 parameter NB_mem = `NB_mem;
 
 input clk;
@@ -105,6 +105,7 @@ assign connect_ctl_jump_reg = connect_jump_ctl[0];
 
 //--------------------------------------
 
+// assign connect_pc_jump_reg = connect_reg_1;
 
 wire [NB_data - 1 : 0] connect_alu_out;
 wire [NB_data - 1 : 0] connect_wdata;
@@ -127,35 +128,39 @@ assign connect_flush = connect_ctl_branch;
 assign out_pc = connect_pc_if_id;
 
 assign out_latch12 = {connect_instruction_if_id, connect_pc_if_id};
-assign out_latch23 = {connect_ex,
-                        connect_mem,
-                        connect_wb,
-                        connect_reg_1,
-                        connect_reg_2,
+assign out_latch23 = {{11{1'b0}},
+                        connect_ex, //10
+                        connect_mem, //9
+                        connect_wb, //2
+                        connect_reg_1, //32
+                        connect_reg_2, //32
+                        
+                        connect_inmediato, //32
+                        connect_branch_dir, //32
+                        {12{1'b0}},
                         connect_shamt,
-                        connect_inmediato,
-                        connect_branch_dir,
-                        connect_jump_addr,
                         connect_rt,
                         connect_rd,
                         connect_rs
                         };
-assign out_latch34 = {connect_pc_branch_addr,
-                        connect_alu_out,
-                        connect_reg_dst,
-                        connect_wdata,
-                        connect_alu_zero,
-                        connect_mem_ex,
-                        connect_wb_ex
+assign out_latch34 = {connect_pc_branch_addr, //32
+                        connect_alu_out, //32
+                        connect_wdata, //32
+                        {15{1'b0}},
+                        connect_reg_dst, //5
+                        connect_alu_zero, //1
+                        connect_mem_ex, //9
+                        connect_wb_ex //2
                         };
 
-assign out_latch45 = {connect_reg_write,
-                        connect_rd_id_mem,
-                        connect_wdata_reg
+assign out_latch45 = {  {26{1'b0}},
+                        connect_reg_write, //1
+                        connect_rd_id_mem, //5
+                        connect_wdata_reg // 32
 };
 
 wire connect_halt12;
-assign connect_halt12 = & connect_instruction_if_id;
+assign connect_halt12 = (& connect_instruction_if_id) & ~reset;
 wire connect_halt23;
 wire connect_halt34;
 wire connect_halt45;
@@ -174,7 +179,7 @@ ID#(.NB_addr(NB_addr), .NB_data(NB_data))
 u_ID(
     .in_instruction(connect_instruction_if_id), .in_branch(connect_pc_if_id), .in_reg_write(connect_reg_write), 
     .in_wdata(connect_wdata_reg), .in_flush(connect_flush), .in_addr_wire(in_addr_wire[NB_addr - 1 : 0]),
-    .in_halt(connect_halt12 & ~reset),
+    .in_halt(connect_halt12 ),
     .in_rd(connect_rd_id_mem), .clk(clk), .reset(reset), .out_jump_dir(connect_jump_addr), .out_branch(connect_branch_dir), 
     .out_ex(connect_ex), .out_mem(connect_mem), .out_wb(connect_wb), .out_reg1(connect_reg_1),
     .out_reg2(connect_reg_2), .out_shamt(connect_shamt), .out_rs(connect_rs), .out_wire_reg(out_wire_reg),

@@ -119,8 +119,8 @@ always@(posedge clk or posedge reset)begin
     end
 end
 
-always@(posedge clk)begin 
-if ( in_flush==1'b1 )
+always@(*)begin 
+if ( in_flush==1'b1 || reset)
     instruction_out <= 32'h00000000;
 else
     instruction_out <= connect_instruction;

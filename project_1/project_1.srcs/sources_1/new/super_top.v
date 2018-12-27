@@ -41,9 +41,9 @@ parameter NB_UART = `NB_UART;
 parameter NB_mem = `NB_mem;
 
 parameter NB_latch12 = 64;
-parameter NB_latch23 = 218;
-parameter NB_latch34 = 113;
-parameter NB_latch45 = 71;
+parameter NB_latch23 = 192;
+parameter NB_latch34 = 128;
+parameter NB_latch45 = 64;
 
 
 input CLK100MHZ;
@@ -87,13 +87,14 @@ wire conect_ok;
 // assign connect_clk_mips = clk;
 assign connect_clk_mips = (connect_clk_enb) ? clk : 1'b1;
 
-assign led[0] = reset;
+assign led[0] = connect_reset_mips;
 assign led[3:1]= connect_estado;
-assign led0_r = conect_ok;
-assign led1_r = connect_halt;
+assign led0_r = connect_clk_enb;
+// assign led1_r = connect_halt;
+assign led1_r = & connect_instruction ;
 
-//clk_wiz_0
-//u_clk_wiz_0(.clk_in1(CLK100MHZ), .clk_out1(clk),.reset(reset), .locked());
+clk_wiz_0
+u_clk_wiz_0(.clk_in1(CLK100MHZ), .clk_out1(clk),.reset(reset), .locked());
 
 
 

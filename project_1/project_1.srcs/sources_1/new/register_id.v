@@ -66,7 +66,7 @@ generate
     integer ram_index;
     initial
     for (ram_index = 0; ram_index < N_regs; ram_index = ram_index + 1) 
-        registros[ram_index] = ram_index ;
+        registros[ram_index] = ram_index | ram_index << 8 | ram_index << 16 | ram_index << 24 ;
 endgenerate
 
 always @(negedge clk) begin

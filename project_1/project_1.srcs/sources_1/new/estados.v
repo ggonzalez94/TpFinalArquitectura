@@ -66,7 +66,7 @@ parameter N_CHAN_latch_45 = (NB_latch_45 - 1)/NB_data;
 // 1 para las salidas de las memorias
 // 1 para la cantidad de ciclos
 parameter N_CHAN = N_CHAN_latch_12 + N_CHAN_latch_23 + N_CHAN_latch_34 + N_CHAN_latch_45 + 4 + 3 ;
-parameter NB_SELECT = $clog2(N_CHAN - 1) + 2;
+parameter NB_SELECT = $clog2(N_CHAN) + 2;
 
 input clk;
 input reset;
@@ -86,13 +86,13 @@ output reg [(NB_UART*4) - 1 : 0] out_data; //Dato a escribir en la memoria
 output reg [NB_mem - 1 : 0] out_addr; //Direccion de memoria de programa para escribir
 
 output reg [NB_mem - 1 : 0] out_rd_addr; //Direccion de lectura de las memorias para SEND_DATA
-output reg [NB_UART - 1 : 0] out_tx_reg;
+output [NB_UART - 1 : 0] out_tx_reg;
 output reg out_reset;
 output reg out_clk_enb;
 //tx start para el transmisor de la UART
 output reg out_tx_start;
 //Wriete enable para programar la memoria de programa
-output reg out_wea_prog;
+output out_wea_prog;
 output out_send_ok;
 output reg [2:0] out_estado;
 
@@ -143,11 +143,11 @@ assign out_send_ok = (estado_actual == STATE_SEND_DATA) ? 1'b1 : 1'b0;
 reg [2 : 0] estado_actual_prog; 
 reg [2 : 0] estado_proximo_prog;
 
-localparam  START = 3'b100,
-            BYTE_1 = 3'b000,
+localparam  BYTE_1 = 3'b000,
             BYTE_2 = 3'b001,
             BYTE_3 = 3'b010,
-            BYTE_4 = 3'b011;
+            BYTE_4 = 3'b011,
+            START = 3'b100;
 
 localparam start = 8'd1,
             continuous = 8'd2,
@@ -156,11 +156,13 @@ localparam start = 8'd1,
             step = 8'd5,
             reprogramar = 8'd6;
 
-
+reg halt_flag;
+reg halt_flag_next;
+reg clk_enb;
 //Organizo los datos a enviar por UARTen un primer mux
 generate
   genvar jj;
-  assign mux_array[0] = in_pc;
+  assign mux_array[0] = {{31{1'b0}}, in_halt};
   assign mux_array[1] = clk_counter;
   // assign mux_array[2] = mem_out;
   for ( jj = 0 ; jj < N_CHAN_latch_12; jj = jj + 1 ) begin: for1
@@ -187,6 +189,7 @@ endgenerate
 
 wire [NB_data -1 : 0] connect_muxes;
 assign connect_muxes = mux_array[mux_select[NB_SELECT - 1 : 2]];
+assign out_wea_prog = wea_prog;
 
 //Este always hace el segundo multiplexor que selcciona que byte se va a enviar del resultado del primer mux
 always @(*) begin
@@ -201,21 +204,23 @@ reg rx_ant;
 reg [NB_mem - 1 : 0] addr_tmp;
 
 
+assign out_tx_reg = mux_out;
+
 //---------------------------------------------
 //Transicion de estados 
 //---------------------------------------------
 always @(*) begin
     //por defecto me quedo en el estado actual
     if (reset) begin
-      out_reg = {NB_data{1'b0}};
+      out_reg_prox = {NB_data{1'b0}};
     end
-
+    halt_flag_next = halt_flag;
     estado_proximo = estado_actual;
     estado_proximo_prog = estado_actual_prog;
     prog_addr = out_addr;
     prog_data = out_data;
     rd_addr = out_rd_addr;
-    tx_reg = out_tx_reg;
+    // tx_reg = out_tx_reg;
     tx_start = out_tx_start;
     wea_prog = out_wea_prog;
     clk_counter_prox = clk_counter;
@@ -249,6 +254,7 @@ always @(*) begin
             out_reset_prox = 1'b0;
             wea_prog = 1'b0;
             clk_counter_prox = 1'b0;
+            out_reg_prox = out_reg;
             case (estado_actual_prog)
                 BYTE_4: out_reg_prox[NB_UART - 1 : 0] = in_rx_reg;
                 BYTE_3: out_reg_prox[(NB_UART*2) - 1 : NB_UART] = in_rx_reg;
@@ -259,13 +265,14 @@ always @(*) begin
                     wea_prog = 1'b1;
                     prog_addr = addr_tmp;// delay de un registro para poder escribir la direccion cero de la memoria
                     addr_tmp_prox = addr_tmp + 1'b1;
+                    if ( & prog_data ) estado_proximo = STATE_WAITING;
                 end
             endcase
 
             if (estado_actual_prog == START) estado_proximo_prog = BYTE_1;
-            if (halt == 1'b1) 
-                estado_proximo = STATE_WAITING;
-            else if (in_rx_done && !rx_ant) begin
+            // if (halt == 1'b1) 
+            //     estado_proximo = STATE_WAITING;
+            if (in_rx_done) begin
                 if (estado_actual_prog == START)
                     estado_proximo_prog = BYTE_1;
                 else 
@@ -276,12 +283,14 @@ always @(*) begin
         STATE_WAITING: begin
             out_reset_prox = 1'b1;
             out_clk_enb = 1'b0;
+            tx_start = 1'b0;
             clk_counter_prox = 1'b0;
             mux_sel_prox = {NB_SELECT{1'b0}};
             rd_addr = {NB_mem{1'b0}};
             wea_prog = 1'b0;
             mem_sel_prox = 1'b0;
             out_reg_prox = {NB_data{1'b0}};
+            halt_flag_next = 1'b1;
 
 
             if(in_rx_done) begin
@@ -304,29 +313,39 @@ always @(*) begin
             clk_counter_prox = clk_counter + 1'b1;
             out_reg_prox = {NB_data{1'b0}};
             mem_sel_prox = 1'b0;
-            mux_sel_prox = {NB_SELECT{1'b0}};
+            tx_start = 1'b0;
+            // mux_sel_prox = 0;
             out_clk_enb = 1'b1;          
-            if (in_halt == 1'b1)
+            if (in_halt == 1'b1) begin
                 estado_proximo = STATE_SEND_DATA;
+                // tx_reg = mux_out;
+                tx_start = 1'b1;
+            end
+
         end
 
         STATE_SEND_DATA: begin
             out_clk_enb = 1'b0;
             // out_reset_prox =1'b1;
+            halt_flag_next = 1'b0;
             clk_counter_prox = clk_counter;
             out_reg_prox = {NB_data{1'b0}};
             // mux_select = 0;
-            if(in_tx_done || mux_select == 0)begin
+            // tx_reg = mux_out;
+            tx_start = 1'b1;
+
+            if(in_tx_done)begin
                 /* Estoy en el ultimo canal ? */ 
                 if((mux_select >> 2) == N_CHAN - 1) begin
                     //Cambio el byte a enviar
-                    mux_sel_prox[1:0] = mux_select[1:0] + 2'b01;
+                    mux_sel_prox[1:0] = mux_select[1:0] + 1'b1;
 
                     //Deteco si llego al final de lectura de la memoria
                     // mem_select = mem_select ^ (rd_addr[5] & !(&mux_select[1:0]));
-                    if (out_rd_addr == (NB_data) && !(|mux_select[1:0]) ) begin
+                    if (out_rd_addr == (NB_data - 1) && (&mux_select[1:0]) ) begin
                     //reseteo la direccion
-                        if (mem_select) begin
+                        if (mem_select) begin        
+                            tx_start = 1'b0;
                             if (in_halt)
                                 estado_proximo = STATE_WAITING;
                             else
@@ -337,36 +356,34 @@ always @(*) begin
                         rd_addr = {NB_mem{1'b0}};
                     end else begin
                     //Aca incremento la direccion de lectura de las memorias
-                        rd_addr = rd_addr + !(|mux_select[1:0]);
+                        rd_addr = out_rd_addr + (&mux_select[1:0]);
                     end            
                 end else 
                     mux_sel_prox = mux_select + 1'b1;          
                 
-                tx_reg = mux_out;
-                tx_start = 1'b1;
-                end 
+                // tx_reg = mux_out;
+                // tx_start = 1'b1;
+            end 
             else 
                 tx_start = 1'b0;   
 
         end 
 
         STATE_STEP: begin
-            out_reset_prox =1'b0;
-            mem_sel_prox <= 1'b0;
-            out_reg_prox <= {NB_data{1'b0}};
-            rd_addr <= {NB_data{1'b0}};
-            mux_sel_prox <= {NB_SELECT{1'b0}};
-            if(rx_ant) begin
-              if (in_rx_reg == step) begin
-                estado_proximo = STATE_SEND_DATA;
-                out_clk_enb = 1'b1;
-              end
-            end
+            out_reset_prox = 1'b0;
+            mem_sel_prox = 1'b0;
+            out_reg_prox = {NB_data{1'b0}};
+            rd_addr = {NB_data{1'b0}};
+            tx_start = 1'b0;
+            halt_flag_next = 1'b0;
+            mux_sel_prox = {NB_SELECT{1'b0}};
             if(in_rx_done) begin
                 if (in_rx_reg == step) begin
-                    // out_clk_enb <= 1'b1;
-                    clk_counter_prox <= clk_counter + 1'b1;
-                    mux_sel_prox <= {NB_SELECT{1'b0}};
+                    estado_proximo = STATE_SEND_DATA;    
+                    clk_counter_prox = clk_counter + 1'b1;
+                    mux_sel_prox = {NB_SELECT{1'b0}};
+                    tx_start = 1'b1;
+                    out_clk_enb = 1'b1;
                 end 
             end
         end
@@ -377,15 +394,17 @@ end
 //Asignacion de salidas segun el estado
 //--------------------------------------------------------------------------
 always @(posedge clk or negedge reset) begin
-    if (reset) begin
-      estado_actual <= STATE_WAITING;
+    halt_flag <= in_halt;
+    if (reset) begin  
+      estado_actual <= STATE_IDLE;
       estado_actual_prog <= BYTE_1;
       out_addr <= {NB_data{1'b0}};
       out_data <= {NB_data{1'b0}};
       out_rd_addr <= {NB_mem{1'b0}};
-      out_tx_reg <= {NB_UART{1'b0}};
+      halt_flag <= 1'b1;
+    //   out_tx_reg <= {NB_UART{1'b0}};
       out_tx_start <= 1'b0;
-      out_wea_prog <= 1'b0;
+    //   out_wea_prog <= 1'b0;
       clk_counter <= 1'b0;
       rx_ant <= 1'b1;
       addr_tmp <= 32'd0;
@@ -393,15 +412,16 @@ always @(posedge clk or negedge reset) begin
       mem_select <= 1'b0;
       out_reg  <= {NB_data{1'b0}};
       out_reset <= 1'b0;
+    //    out_clk_enb <= 1'b1;
     end else begin
         estado_actual <= estado_proximo;
         estado_actual_prog <= estado_proximo_prog;
-        out_addr <= prog_addr;
-        out_data <= prog_data;
+        out_addr <= addr_tmp;
+        out_data <= out_reg;
         out_rd_addr <= rd_addr;
-        out_tx_reg <= tx_reg;
+        // out_tx_reg <= tx_reg;
         out_tx_start <= tx_start;
-        out_wea_prog <= wea_prog;
+        // out_wea_prog <= wea_prog;
         clk_counter <= clk_counter_prox;
         rx_ant <= in_rx_done;
         addr_tmp <= addr_tmp_prox;
@@ -409,6 +429,7 @@ always @(posedge clk or negedge reset) begin
         mem_select <= mem_sel_prox;
         out_reg <= out_reg_prox;
         out_reset <= out_reset_prox;
+        // out_clk_enb <= clk_enb;
     end
 end
 
