@@ -251,7 +251,7 @@ always @(*) begin
 
         STATE_PROGRAMMING: begin
             out_clk_enb = 1'b1;
-            out_reset_prox = 1'b0;
+            out_reset_prox = 1'b1;
             wea_prog = 1'b0;
             clk_counter_prox = 1'b0;
             out_reg_prox = out_reg;

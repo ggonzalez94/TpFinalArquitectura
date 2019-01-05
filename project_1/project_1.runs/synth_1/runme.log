@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010i'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010i'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 32030 
+INFO: Helper process launched with PID 5541 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1240.637 ; gain = 60.898 ; free physical = 166 ; free virtual = 6094
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1240.637 ; gain = 60.898 ; free physical = 100 ; free virtual = 6561
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'super_top' [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/super_top.v:28]
 	Parameter NB_data bound to: 32 - type: integer 
@@ -25,16 +25,16 @@ INFO: [Synth 8-6157] synthesizing module 'super_top' [/home/gustav/ArquiGustavoW
 	Parameter NB_UART bound to: 8 - type: integer 
 	Parameter NB_mem bound to: 11 - type: integer 
 	Parameter NB_latch12 bound to: 64 - type: integer 
-	Parameter NB_latch23 bound to: 218 - type: integer 
-	Parameter NB_latch34 bound to: 113 - type: integer 
-	Parameter NB_latch45 bound to: 71 - type: integer 
+	Parameter NB_latch23 bound to: 192 - type: integer 
+	Parameter NB_latch34 bound to: 128 - type: integer 
+	Parameter NB_latch45 bound to: 64 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'top_pipe' [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/top_pipe.v:27]
 	Parameter NB_data bound to: 32 - type: integer 
 	Parameter NB_addr bound to: 5 - type: integer 
 	Parameter NB_latch12 bound to: 64 - type: integer 
-	Parameter NB_latch23 bound to: 218 - type: integer 
-	Parameter NB_latch34 bound to: 113 - type: integer 
-	Parameter NB_latch45 bound to: 71 - type: integer 
+	Parameter NB_latch23 bound to: 192 - type: integer 
+	Parameter NB_latch34 bound to: 128 - type: integer 
+	Parameter NB_latch45 bound to: 64 - type: integer 
 	Parameter NB_mem bound to: 11 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'IF' [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/IF.v:23]
 	Parameter NB bound to: 32 - type: integer 
@@ -195,15 +195,15 @@ INFO: [Synth 8-6157] synthesizing module 'estados' [/home/gustav/ArquiGustavoWol
 	Parameter NB_UART bound to: 8 - type: integer 
 	Parameter NB_data bound to: 32 - type: integer 
 	Parameter NB_latch_12 bound to: 64 - type: integer 
-	Parameter NB_latch_23 bound to: 218 - type: integer 
-	Parameter NB_latch_34 bound to: 113 - type: integer 
-	Parameter NB_latch_45 bound to: 71 - type: integer 
+	Parameter NB_latch_23 bound to: 192 - type: integer 
+	Parameter NB_latch_34 bound to: 128 - type: integer 
+	Parameter NB_latch_45 bound to: 64 - type: integer 
 	Parameter NB_mem bound to: 11 - type: integer 
 	Parameter N_CHAN_latch_12 bound to: 1 - type: integer 
-	Parameter N_CHAN_latch_23 bound to: 6 - type: integer 
+	Parameter N_CHAN_latch_23 bound to: 5 - type: integer 
 	Parameter N_CHAN_latch_34 bound to: 3 - type: integer 
-	Parameter N_CHAN_latch_45 bound to: 2 - type: integer 
-	Parameter N_CHAN bound to: 19 - type: integer 
+	Parameter N_CHAN_latch_45 bound to: 1 - type: integer 
+	Parameter N_CHAN bound to: 17 - type: integer 
 	Parameter NB_SELECT bound to: 7 - type: integer 
 	Parameter STATE_IDLE bound to: 3'b000 
 	Parameter STATE_PROGRAMMING bound to: 3'b001 
@@ -211,26 +211,22 @@ INFO: [Synth 8-6157] synthesizing module 'estados' [/home/gustav/ArquiGustavoWol
 	Parameter STATE_COTINUOUS bound to: 3'b011 
 	Parameter STATE_SEND_DATA bound to: 3'b100 
 	Parameter STATE_STEP bound to: 3'b101 
-	Parameter START bound to: 3'b100 
 	Parameter BYTE_1 bound to: 3'b000 
 	Parameter BYTE_2 bound to: 3'b001 
 	Parameter BYTE_3 bound to: 3'b010 
 	Parameter BYTE_4 bound to: 3'b011 
+	Parameter START bound to: 3'b100 
 	Parameter start bound to: 8'b00000001 
 	Parameter continuous bound to: 8'b00000010 
 	Parameter step_by bound to: 8'b00000011 
 	Parameter reset_mips bound to: 8'b00000100 
 	Parameter step bound to: 8'b00000101 
 	Parameter reprogramar bound to: 8'b00000110 
-WARNING: [Synth 8-6090] variable 'out_reg_prox' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:239]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:252]
-WARNING: [Synth 8-6090] variable 'mem_sel_prox' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:355]
-WARNING: [Synth 8-6090] variable 'out_reg_prox' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:356]
-WARNING: [Synth 8-6090] variable 'rd_addr' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:357]
-WARNING: [Synth 8-6090] variable 'mux_sel_prox' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:358]
-WARNING: [Synth 8-6090] variable 'clk_counter_prox' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:368]
-WARNING: [Synth 8-6090] variable 'mux_sel_prox' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:369]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:232]
+WARNING: [Synth 8-6090] variable 'out_reg_prox' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:244]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:258]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:237]
+WARNING: [Synth 8-6014] Unused sequential element halt_flag_reg was removed.  [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:397]
+WARNING: [Synth 8-6014] Unused sequential element rx_ant_reg was removed.  [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:409]
 INFO: [Synth 8-6155] done synthesizing module 'estados' (17#1) [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:26]
 WARNING: [Synth 8-3848] Net UART_RXD_OUT in module/entity super_top does not have driver. [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/super_top.v:56]
 WARNING: [Synth 8-3848] Net clk in module/entity super_top does not have driver. [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/super_top.v:84]
@@ -238,53 +234,85 @@ WARNING: [Synth 8-3848] Net connect_uart_rx_data in module/entity super_top does
 WARNING: [Synth 8-3848] Net connect_tx_done in module/entity super_top does not have driver. [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/super_top.v:69]
 WARNING: [Synth 8-3848] Net connect_rx_done in module/entity super_top does not have driver. [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/super_top.v:70]
 INFO: [Synth 8-6155] done synthesizing module 'super_top' (18#1) [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/super_top.v:28]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[31]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[30]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[29]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[28]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[27]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[26]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[25]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[24]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[23]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[22]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[21]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[20]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[19]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[18]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[17]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[16]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[15]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[14]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[13]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[12]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[11]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[10]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[9]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[8]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[7]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[6]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[5]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[4]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[3]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[2]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[1]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[0]
 WARNING: [Synth 8-3331] design super_top has unconnected port UART_RXD_OUT
 WARNING: [Synth 8-3331] design super_top has unconnected port CLK100MHZ
 WARNING: [Synth 8-3331] design super_top has unconnected port UART_TXD_IN
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1286.262 ; gain = 106.523 ; free physical = 172 ; free virtual = 6100
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1286.262 ; gain = 106.523 ; free physical = 170 ; free virtual = 6571
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1286.262 ; gain = 106.523 ; free physical = 173 ; free virtual = 6102
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1286.262 ; gain = 106.523 ; free physical = 171 ; free virtual = 6572
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010iclg225-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1294.266 ; gain = 114.527 ; free physical = 173 ; free virtual = 6102
----------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1294.266 ; gain = 114.527 ; free physical = 170 ; free virtual = 6571
 INFO: [Device 21-403] Loading part xc7z010iclg225-1L
+---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "out_ex" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "out_mem" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "out_wb" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/alu.v:54]
 INFO: [Synth 8-5587] ROM size for "out_alu_code" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-802] inferred FSM for state register 'estado_actual_reg' in module 'estados'
-INFO: [Synth 8-5546] ROM "out_clk_enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tx_start" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "estado_proximo" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "estado_proximo_prog" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "rd_addr" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "mux_sel_prox" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "tx_start" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "wea_prog" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "tx_start" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "out_reset_prox" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "out_send_ok" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "estado_proximo" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-           STATE_WAITING |                              000 |                              010
-         STATE_COTINUOUS |                              001 |                              011
-         STATE_SEND_DATA |                              010 |                              100
-              STATE_STEP |                              011 |                              101
-              STATE_IDLE |                              100 |                              000
-       STATE_PROGRAMMING |                              101 |                              001
+              STATE_IDLE |                              000 |                              000
+       STATE_PROGRAMMING |                              001 |                              001
+           STATE_WAITING |                              010 |                              010
+         STATE_COTINUOUS |                              011 |                              011
+         STATE_SEND_DATA |                              100 |                              100
+              STATE_STEP |                              101 |                              101
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'estado_actual_reg' using encoding 'sequential' in module 'estados'
-WARNING: [Synth 8-327] inferring latch for variable 'out_reg_reg' [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:210]
+WARNING: [Synth 8-327] inferring latch for variable 'wea_prog_reg' [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v:192]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1310.281 ; gain = 130.543 ; free physical = 150 ; free virtual = 6079
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1310.281 ; gain = 130.543 ; free physical = 149 ; free virtual = 6553
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -312,22 +340,21 @@ Detailed RTL Component Info :
 	               11 Bit    Registers := 3     
 	               10 Bit    Registers := 1     
 	                9 Bit    Registers := 2     
-	                8 Bit    Registers := 1     
 	                7 Bit    Registers := 1     
 	                5 Bit    Registers := 6     
 	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 10    
+	                1 Bit    Registers := 8     
 +---RAMs : 
 	              64K Bit         RAMs := 2     
 	             1024 Bit         RAMs := 1     
 +---Muxes : 
 	   4 Input     32 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 25    
+	   2 Input     32 Bit        Muxes := 26    
 	  12 Input     32 Bit        Muxes := 1     
-	   6 Input     32 Bit        Muxes := 1     
+	   6 Input     32 Bit        Muxes := 4     
 	   2 Input     11 Bit        Muxes := 2     
-	   6 Input     11 Bit        Muxes := 3     
+	   6 Input     11 Bit        Muxes := 2     
 	   5 Input     10 Bit        Muxes := 1     
 	  20 Input     10 Bit        Muxes := 1     
 	   2 Input     10 Bit        Muxes := 1     
@@ -340,14 +367,15 @@ Detailed RTL Component Info :
 	   2 Input      5 Bit        Muxes := 6     
 	   4 Input      5 Bit        Muxes := 1     
 	  22 Input      4 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 5     
+	   2 Input      3 Bit        Muxes := 4     
 	   6 Input      3 Bit        Muxes := 2     
 	   3 Input      3 Bit        Muxes := 1     
 	   5 Input      2 Bit        Muxes := 1     
 	  20 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 4     
-	   2 Input      1 Bit        Muxes := 12    
+	   2 Input      1 Bit        Muxes := 11    
 	   6 Input      1 Bit        Muxes := 16    
+	   3 Input      1 Bit        Muxes := 1     
 	   4 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -377,8 +405,9 @@ Detailed RTL Component Info :
 Module IF 
 Detailed RTL Component Info : 
 +---Registers : 
-	               32 Bit    Registers := 3     
+	               32 Bit    Registers := 2     
 +---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 1     
 Module control_id 
 Detailed RTL Component Info : 
@@ -473,26 +502,26 @@ Detailed RTL Component Info :
 	   2 Input      3 Bit       Adders := 1     
 	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 2     
+	               32 Bit    Registers := 3     
 	               11 Bit    Registers := 3     
-	                8 Bit    Registers := 1     
 	                7 Bit    Registers := 1     
 	                3 Bit    Registers := 1     
-	                1 Bit    Registers := 5     
+	                1 Bit    Registers := 3     
 +---Muxes : 
-	   6 Input     32 Bit        Muxes := 1     
+	   6 Input     32 Bit        Muxes := 4     
 	   2 Input     32 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 1     
-	   6 Input     11 Bit        Muxes := 3     
+	   6 Input     11 Bit        Muxes := 2     
 	   4 Input      8 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 1     
 	   3 Input      7 Bit        Muxes := 1     
 	   6 Input      7 Bit        Muxes := 2     
-	   2 Input      3 Bit        Muxes := 5     
+	   2 Input      3 Bit        Muxes := 4     
 	   6 Input      3 Bit        Muxes := 2     
 	   3 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 9     
+	   2 Input      1 Bit        Muxes := 8     
 	   6 Input      1 Bit        Muxes := 16    
+	   3 Input      1 Bit        Muxes := 1     
 	   4 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
@@ -514,58 +543,45 @@ Warning: Parallel synthesis criteria is not met
 WARNING: [Synth 8-6014] Unused sequential element u_EX/out_sign_reg was removed.  [/home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/EX.v:157]
 INFO: [Synth 8-5546] ROM "u_ID/u_control_id/out_ex" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "u_ID/u_control_id/out_mem" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "out_clk_enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tx_start" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "estado_proximo" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "rd_addr" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[31]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[30]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[29]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[28]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[27]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[26]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[25]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[24]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[23]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[22]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[21]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[20]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[19]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[18]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[17]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[16]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[15]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[14]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[13]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[12]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[11]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[10]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[9]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[8]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[7]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[6]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[5]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[4]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[3]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[2]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[1]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[0]
 WARNING: [Synth 8-3331] design super_top has unconnected port UART_RXD_OUT
 WARNING: [Synth 8-3331] design super_top has unconnected port CLK100MHZ
 WARNING: [Synth 8-3331] design super_top has unconnected port UART_TXD_IN
 INFO: [Synth 8-4652] Swapped enable and write-enable on 2 RAM instances of RAM u_top_pipe/u_IF/u_prog_mem/BRAM_reg to conserve power
-INFO: [Synth 8-3886] merging instance 'i_13' (FDR) to 'u_top_pipe/u_IF/instruction_out_reg[16]'
-INFO: [Synth 8-3886] merging instance 'i_6' (FDR) to 'u_top_pipe/u_IF/instruction_out_reg[17]'
-INFO: [Synth 8-3886] merging instance 'i_5' (FDR) to 'u_top_pipe/u_IF/instruction_out_reg[18]'
-INFO: [Synth 8-3886] merging instance 'i_4' (FDR) to 'u_top_pipe/u_IF/instruction_out_reg[19]'
-INFO: [Synth 8-3886] merging instance 'i_3' (FDR) to 'u_top_pipe/u_IF/instruction_out_reg[20]'
-INFO: [Synth 8-3886] merging instance 'i_11' (FDR) to 'u_top_pipe/u_IF/instruction_out_reg[21]'
-INFO: [Synth 8-3886] merging instance 'i_10' (FDR) to 'u_top_pipe/u_IF/instruction_out_reg[22]'
-INFO: [Synth 8-3886] merging instance 'i_9' (FDR) to 'u_top_pipe/u_IF/instruction_out_reg[23]'
-INFO: [Synth 8-3886] merging instance 'i_8' (FDR) to 'u_top_pipe/u_IF/instruction_out_reg[24]'
-INFO: [Synth 8-3886] merging instance 'i_7' (FDR) to 'u_top_pipe/u_IF/instruction_out_reg[25]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[0]' (LD) to 'u_estados/out_reg_reg[1]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[1]' (LD) to 'u_estados/out_reg_reg[2]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[2]' (LD) to 'u_estados/out_reg_reg[3]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[3]' (LD) to 'u_estados/out_reg_reg[4]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[4]' (LD) to 'u_estados/out_reg_reg[5]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[5]' (LD) to 'u_estados/out_reg_reg[6]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[6]' (LD) to 'u_estados/out_reg_reg[7]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[7]' (LD) to 'u_estados/out_reg_reg[8]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[8]' (LD) to 'u_estados/out_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[9]' (LD) to 'u_estados/out_reg_reg[10]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[10]' (LD) to 'u_estados/out_reg_reg[11]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[11]' (LD) to 'u_estados/out_reg_reg[12]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[12]' (LD) to 'u_estados/out_reg_reg[13]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[13]' (LD) to 'u_estados/out_reg_reg[14]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[14]' (LD) to 'u_estados/out_reg_reg[15]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[15]' (LD) to 'u_estados/out_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[16]' (LD) to 'u_estados/out_reg_reg[17]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[17]' (LD) to 'u_estados/out_reg_reg[18]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[18]' (LD) to 'u_estados/out_reg_reg[19]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[19]' (LD) to 'u_estados/out_reg_reg[20]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[20]' (LD) to 'u_estados/out_reg_reg[21]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[21]' (LD) to 'u_estados/out_reg_reg[22]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[22]' (LD) to 'u_estados/out_reg_reg[23]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[23]' (LD) to 'u_estados/out_reg_reg[24]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[24]' (LD) to 'u_estados/out_reg_reg[25]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[25]' (LD) to 'u_estados/out_reg_reg[26]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[26]' (LD) to 'u_estados/out_reg_reg[27]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[27]' (LD) to 'u_estados/out_reg_reg[28]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[28]' (LD) to 'u_estados/out_reg_reg[29]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[29]' (LD) to 'u_estados/out_reg_reg[30]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[30]' (LD) to 'u_estados/out_reg_reg[31]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_estados/out_reg_reg[31] )
-INFO: [Synth 8-3886] merging instance 'u_estados/estado_actual_prog_reg[2]' (FDCE) to 'u_estados/estado_actual_prog_reg[0]'
-INFO: [Synth 8-3886] merging instance 'u_estados/estado_actual_prog_reg[1]' (FDCE) to 'u_estados/estado_actual_prog_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_estados/estado_actual_prog_reg[0] )
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[15]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[16]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[16]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[17]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[17]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[18]'
@@ -582,43 +598,82 @@ INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[27]' (F
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[28]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[29]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[29]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[30]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[30]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[31]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[0]' (FDCE) to 'u_estados/out_data_reg[1]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[1]' (FDCE) to 'u_estados/out_data_reg[2]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[2]' (FDCE) to 'u_estados/out_data_reg[3]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[3]' (FDCE) to 'u_estados/out_data_reg[4]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[4]' (FDCE) to 'u_estados/out_data_reg[5]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[5]' (FDCE) to 'u_estados/out_data_reg[6]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[6]' (FDCE) to 'u_estados/out_data_reg[7]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[7]' (FDCE) to 'u_estados/out_data_reg[8]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[8]' (FDCE) to 'u_estados/out_data_reg[9]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[9]' (FDCE) to 'u_estados/out_data_reg[10]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[10]' (FDCE) to 'u_estados/out_data_reg[11]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[11]' (FDCE) to 'u_estados/out_data_reg[12]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[12]' (FDCE) to 'u_estados/out_data_reg[13]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[13]' (FDCE) to 'u_estados/out_data_reg[14]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[14]' (FDCE) to 'u_estados/out_data_reg[15]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[15]' (FDCE) to 'u_estados/out_data_reg[16]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[16]' (FDCE) to 'u_estados/out_data_reg[17]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[17]' (FDCE) to 'u_estados/out_data_reg[18]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[18]' (FDCE) to 'u_estados/out_data_reg[19]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[19]' (FDCE) to 'u_estados/out_data_reg[20]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[20]' (FDCE) to 'u_estados/out_data_reg[21]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[21]' (FDCE) to 'u_estados/out_data_reg[22]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[22]' (FDCE) to 'u_estados/out_data_reg[23]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[23]' (FDCE) to 'u_estados/out_data_reg[24]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[24]' (FDCE) to 'u_estados/out_data_reg[25]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[25]' (FDCE) to 'u_estados/out_data_reg[26]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[26]' (FDCE) to 'u_estados/out_data_reg[27]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[27]' (FDCE) to 'u_estados/out_data_reg[28]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[28]' (FDCE) to 'u_estados/out_data_reg[29]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[29]' (FDCE) to 'u_estados/out_data_reg[30]'
-INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[30]' (FDCE) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/estado_actual_prog_reg[1]' (FDCE) to 'u_estados/estado_actual_prog_reg[0]'
+INFO: [Synth 8-3886] merging instance 'u_estados/estado_actual_prog_reg[2]' (FDCE) to 'u_estados/estado_actual_prog_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_estados/estado_actual_prog_reg[0] )
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[0]' (FDCE) to 'u_estados/out_reg_reg[1]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[1]' (FDCE) to 'u_estados/out_reg_reg[2]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[2]' (FDCE) to 'u_estados/out_reg_reg[3]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[3]' (FDCE) to 'u_estados/out_reg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[4]' (FDCE) to 'u_estados/out_reg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[5]' (FDCE) to 'u_estados/out_reg_reg[6]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[6]' (FDCE) to 'u_estados/out_reg_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_estados/out_reg_reg[7] )
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[8]' (FDCE) to 'u_estados/out_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[9]' (FDCE) to 'u_estados/out_reg_reg[10]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[10]' (FDCE) to 'u_estados/out_reg_reg[11]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[11]' (FDCE) to 'u_estados/out_reg_reg[12]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[12]' (FDCE) to 'u_estados/out_reg_reg[13]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[13]' (FDCE) to 'u_estados/out_reg_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[14]' (FDCE) to 'u_estados/out_reg_reg[15]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_estados/out_reg_reg[15] )
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[16]' (FDCE) to 'u_estados/out_reg_reg[17]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[17]' (FDCE) to 'u_estados/out_reg_reg[18]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[18]' (FDCE) to 'u_estados/out_reg_reg[19]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[19]' (FDCE) to 'u_estados/out_reg_reg[20]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[20]' (FDCE) to 'u_estados/out_reg_reg[21]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[21]' (FDCE) to 'u_estados/out_reg_reg[22]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[22]' (FDCE) to 'u_estados/out_reg_reg[23]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_estados/out_reg_reg[23] )
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[24]' (FDCE) to 'u_estados/out_reg_reg[25]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[25]' (FDCE) to 'u_estados/out_reg_reg[26]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[26]' (FDCE) to 'u_estados/out_reg_reg[27]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[27]' (FDCE) to 'u_estados/out_reg_reg[28]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[28]' (FDCE) to 'u_estados/out_reg_reg[29]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[29]' (FDCE) to 'u_estados/out_reg_reg[30]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_reg_reg[30]' (FDCE) to 'u_estados/out_reg_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_estados/out_reg_reg[31] )
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[0]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[1]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[2]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[3]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[4]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[5]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[6]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[7]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[8]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[9]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[10]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[11]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[12]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[13]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[14]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[15]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[16]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[17]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[18]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[19]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[20]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[21]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[22]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[23]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[24]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[25]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[26]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[27]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[28]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[29]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_estados/out_data_reg[30]' (FDC) to 'u_estados/out_data_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_estados/wea_prog_reg )
 WARNING: [Synth 8-3332] Sequential element (u_top_pipe/u_ID/out_ex_reg[1]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_top_pipe/u_ID/out_ex_reg[0]) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_reg_reg[31]) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/rx_ant_reg) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_data_reg[31]) is unused and will be removed from module super_top.
+WARNING: [Synth 8-3332] Sequential element (u_estados/wea_prog_reg) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/estado_actual_prog_reg[0]) is unused and will be removed from module super_top.
+WARNING: [Synth 8-3332] Sequential element (u_estados/out_reg_reg[31]) is unused and will be removed from module super_top.
+WARNING: [Synth 8-3332] Sequential element (u_estados/out_reg_reg[23]) is unused and will be removed from module super_top.
+WARNING: [Synth 8-3332] Sequential element (u_estados/out_reg_reg[15]) is unused and will be removed from module super_top.
+WARNING: [Synth 8-3332] Sequential element (u_estados/out_reg_reg[7]) is unused and will be removed from module super_top.
+WARNING: [Synth 8-3332] Sequential element (u_estados/mem_select_reg) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/clk_counter_reg[31]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/clk_counter_reg[30]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/clk_counter_reg[29]) is unused and will be removed from module super_top.
@@ -651,14 +706,7 @@ WARNING: [Synth 8-3332] Sequential element (u_estados/clk_counter_reg[3]) is unu
 WARNING: [Synth 8-3332] Sequential element (u_estados/clk_counter_reg[2]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/clk_counter_reg[1]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/clk_counter_reg[0]) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_tx_reg_reg[7]) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_tx_reg_reg[6]) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_tx_reg_reg[5]) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_tx_reg_reg[4]) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_tx_reg_reg[3]) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_tx_reg_reg[2]) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_tx_reg_reg[1]) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_tx_reg_reg[0]) is unused and will be removed from module super_top.
+WARNING: [Synth 8-3332] Sequential element (u_estados/out_data_reg[31]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/addr_tmp_reg[10]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/addr_tmp_reg[9]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/addr_tmp_reg[8]) is unused and will be removed from module super_top.
@@ -682,8 +730,6 @@ WARNING: [Synth 8-3332] Sequential element (u_estados/out_addr_reg[2]) is unused
 WARNING: [Synth 8-3332] Sequential element (u_estados/out_addr_reg[1]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/out_addr_reg[0]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/out_tx_start_reg) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/out_wea_prog_reg) is unused and will be removed from module super_top.
-WARNING: [Synth 8-3332] Sequential element (u_estados/mem_select_reg) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/mux_select_reg[6]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/mux_select_reg[5]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/mux_select_reg[4]) is unused and will be removed from module super_top.
@@ -704,7 +750,7 @@ WARNING: [Synth 8-3332] Sequential element (u_estados/out_rd_addr_reg[1]) is unu
 WARNING: [Synth 8-3332] Sequential element (u_estados/out_rd_addr_reg[0]) is unused and will be removed from module super_top.
 WARNING: [Synth 8-3332] Sequential element (u_estados/out_reset_reg) is unused and will be removed from module super_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:01:27 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 237 ; free virtual = 5913
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:49 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 225 ; free virtual = 6389
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -744,7 +790,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:01:28 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 240 ; free virtual = 5917
+Finished Timing Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:50 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 221 ; free virtual = 6389
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -781,18 +827,17 @@ Start Technology Mapping
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[8]' (FDC) to 'u_top_pipe/u_ID/out_shamt_reg[2]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[10]' (FDC) to 'u_top_pipe/u_ID/out_shamt_reg[4]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[6]' (FDC) to 'u_top_pipe/u_ID/out_shamt_reg[0]'
-INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[9]' (FDC) to 'u_top_pipe/u_ID/out_shamt_reg[3]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[11]' (FDC) to 'u_top_pipe/u_ID/out_rd_reg[0]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[7]' (FDC) to 'u_top_pipe/u_ID/out_shamt_reg[1]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[9]' (FDC) to 'u_top_pipe/u_ID/out_shamt_reg[3]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_rd_reg[3]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[14]'
-INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_rd_reg[4]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[31]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_rd_reg[1]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[12]'
 INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_rd_reg[2]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[13]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_rd_reg[4]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[31]'
 INFO: [Synth 8-4480] The timing for the instance u_top_pipe/u_IF/u_prog_mem/BRAM_reg_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance u_top_pipe/u_IF/u_prog_mem/BRAM_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:42 ; elapsed = 00:01:30 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 235 ; free virtual = 5912
+Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:01:52 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 207 ; free virtual = 6379
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -816,7 +861,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:01:31 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 236 ; free virtual = 5913
+Finished IO Insertion : Time (s): cpu = 00:01:00 ; elapsed = 00:01:53 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 203 ; free virtual = 6379
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -829,7 +874,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:01:31 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 236 ; free virtual = 5913
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:01 ; elapsed = 00:01:53 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 203 ; free virtual = 6379
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -841,25 +886,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:01:31 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 236 ; free virtual = 5913
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:01 ; elapsed = 00:01:54 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 204 ; free virtual = 6380
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:01:31 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 236 ; free virtual = 5913
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:01 ; elapsed = 00:01:54 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 207 ; free virtual = 6382
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:01:32 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 236 ; free virtual = 5913
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:01 ; elapsed = 00:01:54 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 208 ; free virtual = 6383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:01:32 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 236 ; free virtual = 5913
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:01 ; elapsed = 00:01:54 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 208 ; free virtual = 6383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -877,19 +922,19 @@ Report Cell Usage:
 +------+----------+------+
 |1     |BUFG      |     2|
 |2     |CARRY4    |    31|
-|3     |LUT1      |     2|
-|4     |LUT2      |   177|
-|5     |LUT3      |   145|
-|6     |LUT4      |   102|
-|7     |LUT5      |   290|
-|8     |LUT6      |   804|
-|9     |MUXF7     |    82|
+|3     |LUT1      |     3|
+|4     |LUT2      |   185|
+|5     |LUT3      |   180|
+|6     |LUT4      |   129|
+|7     |LUT5      |   225|
+|8     |LUT6      |   703|
+|9     |MUXF7     |    64|
 |10    |MUXF8     |    32|
 |11    |RAM128X1D |   512|
 |12    |RAM32M    |    16|
 |13    |RAMB36E1  |     2|
 |14    |FDCE      |     3|
-|15    |FDRE      |   526|
+|15    |FDRE      |   494|
 |16    |IBUF      |     1|
 |17    |OBUF      |     6|
 |18    |OBUFT     |     1|
@@ -899,27 +944,27 @@ Report Instance Areas:
 +------+--------------------+------------+------+
 |      |Instance            |Module      |Cells |
 +------+--------------------+------------+------+
-|1     |top                 |            |  2734|
-|2     |  u_estados         |estados     |    10|
-|3     |  u_top_pipe        |top_pipe    |  2714|
-|4     |    u_EX            |EX          |   297|
-|5     |      u_alu         |alu         |    97|
-|6     |    u_ID            |ID          |  1184|
-|7     |      u_register_id |register_id |   116|
-|8     |    u_IF            |IF          |   277|
+|1     |top                 |            |  2589|
+|2     |  u_estados         |estados     |    11|
+|3     |  u_top_pipe        |top_pipe    |  2568|
+|4     |    u_EX            |EX          |   296|
+|5     |      u_alu         |alu         |    89|
+|6     |    u_ID            |ID          |  1051|
+|7     |      u_register_id |register_id |   112|
+|8     |    u_IF            |IF          |   262|
 |9     |      u_adder       |adder       |     8|
-|10    |      u_prog_mem    |prog_mem    |    11|
-|11    |    u_MEM           |MEM         |   956|
+|10    |      u_prog_mem    |prog_mem    |   157|
+|11    |    u_MEM           |MEM         |   959|
 |12    |      u_data_mem    |data_mem    |   768|
 +------+--------------------+------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:01:32 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 236 ; free virtual = 5912
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:01 ; elapsed = 00:01:54 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 208 ; free virtual = 6383
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 198 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:01:32 . Memory (MB): peak = 1528.656 ; gain = 348.918 ; free physical = 238 ; free virtual = 5915
-Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:01:32 . Memory (MB): peak = 1528.664 ; gain = 348.918 ; free physical = 238 ; free virtual = 5915
+Synthesis finished with 0 errors, 0 critical warnings and 252 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:01 ; elapsed = 00:01:54 . Memory (MB): peak = 1539.672 ; gain = 359.934 ; free physical = 211 ; free virtual = 6385
+Synthesis Optimization Complete : Time (s): cpu = 00:01:01 ; elapsed = 00:01:54 . Memory (MB): peak = 1539.680 ; gain = 359.934 ; free physical = 211 ; free virtual = 6385
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 676 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 658 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -929,11 +974,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 16 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-181 Infos, 198 Warnings, 0 Critical Warnings and 0 Errors encountered.
+171 Infos, 252 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:01:37 . Memory (MB): peak = 1536.660 ; gain = 357.023 ; free physical = 217 ; free virtual = 5895
+synth_design: Time (s): cpu = 00:01:07 ; elapsed = 00:02:01 . Memory (MB): peak = 1547.676 ; gain = 368.039 ; free physical = 177 ; free virtual = 6367
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/gustav/ArquiGustavoWolfmann/project_1/project_1.runs/synth_1/super_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file super_top_utilization_synth.rpt -pb super_top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.34 . Memory (MB): peak = 1560.672 ; gain = 0.000 ; free physical = 214 ; free virtual = 5892
-INFO: [Common 17-206] Exiting Vivado at Sat Dec 22 19:18:48 2018...
+report_utilization: Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.90 . Memory (MB): peak = 1571.688 ; gain = 0.000 ; free physical = 172 ; free virtual = 6366
+INFO: [Common 17-206] Exiting Vivado at Sat Jan  5 14:54:49 2019...

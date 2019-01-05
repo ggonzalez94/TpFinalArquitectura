@@ -147,9 +147,9 @@ u_cortocircuito( .in_reg_w_34(in_c_reg_w_34), .in_reg_w_45(in_c_reg_w_45), .in_r
 
 
 always @(posedge clk or posedge reset) begin
-  if (reset || in_flush) begin
-    out_mem <= 3'b000;
-    out_wb <= 3'b00;
+  if (reset) begin
+    out_mem <= 9'b000;
+    out_wb <= 2'b00;
     out_branch <= {NB_data{1'b0}};
     out_alu <= {NB_data{1'b0}};
     out_reg_dest <= {NB_data{1'b0}};
@@ -157,7 +157,21 @@ always @(posedge clk or posedge reset) begin
     out_sign <= 1'b0;
     out_zero <= 1'b0;
     out_halt <= 1'b0;
-  end else begin
+  end 
+  
+  else if(in_flush) begin
+    out_mem <= 9'b000;
+    out_wb <= 2'b00;
+    out_branch <= {NB_data{1'b0}};
+    out_alu <= {NB_data{1'b0}};
+    out_reg_dest <= {NB_data{1'b0}};
+    out_w_data <= {NB_data{1'b0}};
+    out_sign <= 1'b0;
+    out_zero <= 1'b0;
+    out_halt <= 1'b0;
+  end
+  
+  else begin
     out_halt <= in_halt;
     out_mem <= in_mem;
     out_wb <= in_wb;

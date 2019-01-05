@@ -79,7 +79,7 @@ case(in_opcode)
             endcase
             end
     // LW 100011
-    6'b100011: begin
+    6'b100011, 6'b100111: begin
     out_ex = 10'b0000011000;
     out_mem = 9'b000000010;
     out_wb = 2'b11;
@@ -187,7 +187,7 @@ case(in_opcode)
     end
     // JAL
     6'b000011: begin
-    out_ex = 10'b1100000010;
+    out_ex = 10'b1100010010;
     out_mem = 9'b000000000;
     out_wb = 2'b10;
     end

@@ -39,10 +39,10 @@ module prog_mem #(
   output [(NB_COL*COL_WIDTH)-1:0] douta, // RAM output data
   output out_halt
 );
-  reg rsta = 1'b0;
+  reg rsta = 1'b1;
   reg [(NB_COL*COL_WIDTH)-1:0] BRAM [RAM_DEPTH-1:0];
   reg [(NB_COL*COL_WIDTH)-1:0] ram_data = {(NB_COL*COL_WIDTH){1'b0}};
-  reg regcea = 1'b1;
+  reg regcea = 1'b0;
 
   // The following code either initializes the memory values to a specified file or to all zeros to match hardware
   generate

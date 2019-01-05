@@ -93,8 +93,8 @@ assign led0_r = connect_clk_enb;
 // assign led1_r = connect_halt;
 assign led1_r = & connect_instruction ;
 
-clk_wiz_0
-u_clk_wiz_0(.clk_in1(CLK100MHZ), .clk_out1(clk),.reset(reset), .locked());
+//clk_wiz_0
+//u_clk_wiz_0(.clk_in1(CLK100MHZ), .clk_out1(clk),.reset(reset), .locked());
 
 
 

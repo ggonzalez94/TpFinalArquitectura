@@ -133,7 +133,7 @@ assign out_jump_ctl =  control_out[12:11];
 
 
 always@(posedge clk or posedge reset) begin    
-    if (reset || in_flush ) begin
+    if (reset ) begin
         out_branch <= 32'h00000000;
         out_inmediato <= 32'h00000000;
         out_rd <= 32'h00000000;
@@ -144,7 +144,23 @@ always@(posedge clk or posedge reset) begin
         out_mem <= 32'h00000000;
         out_halt <= 1'b0;
         out_wb <= 32'h00000000;
-    end else begin
+    end 
+
+    else if ( in_flush ) begin
+        out_branch <= 32'h00000000;
+        out_inmediato <= 32'h00000000;
+        out_rd <= 32'h00000000;
+        out_rt <= 32'h00000000;
+        out_rs <= 32'h00000000;
+        out_shamt <= 32'h00000000;
+        out_ex <= 32'h00000000;
+        out_mem <= 32'h00000000;
+        out_halt <= 1'b0;
+        out_wb <= 32'h00000000;
+        // out_jump_dir <= 32'h00000000;
+    end 
+
+    else begin
         out_halt <= in_halt;
         out_branch <= in_branch;
         out_inmediato <= $signed(in_instruction[15:0]);
