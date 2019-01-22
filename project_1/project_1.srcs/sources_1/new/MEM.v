@@ -25,18 +25,18 @@
 module MEM(clk,
             reset,
             in_address,
-            in_wdata,
-            in_wire_addr,
-            in_mem_ctl,
-            in_alu_zero,
-            in_reg_dst,
+            in_writedat,
             in_wb,
             in_halt,
+            in_reg_dst,
+            in_alu_zero,
+            in_wire_addr,
+            in_mem_ctl,
             out_halt,
-            out_wb,
-            out_rdata,
             out_addr_in,
+            out_regdata,
             out_reg_dst,
+            out_wb,
             out_ctl_branch,
             out_dout_wire
             );
@@ -49,7 +49,7 @@ parameter NB_mem = 11;
 input clk;
 input reset;
 input [NB_data - 1 : 0] in_address;
-input [NB_data - 1 : 0] in_wdata;
+input [NB_data - 1 : 0] in_writedat;
 input [9 - 1 : 0] in_mem_ctl;
 input in_alu_zero;
 input [2 - 1 : 0] in_wb;
@@ -59,7 +59,7 @@ input in_halt;
 
 output reg out_halt;
 output reg [2 - 1 : 0] out_wb;
-output reg [NB_data - 1 : 0] out_rdata;
+output reg [NB_data - 1 : 0] out_regdata;
 output reg [NB_data - 1 : 0] out_addr_in;
 output reg [NB_addr - 1 : 0] out_reg_dst;
 output out_ctl_branch;
@@ -71,9 +71,9 @@ wire [NB_data - 1 : 0] connect_dout_wire;
 
 assign out_ctl_branch = in_mem_ctl[2] & (in_alu_zero ^ in_mem_ctl[8]);
 
-assign connect_data_in = (in_mem_ctl[7] == 1'b1) ?{ {24{in_wdata[7]}}, in_wdata[7:0] } :
-                  (in_mem_ctl[6] == 1'b1) ? { {16{in_wdata[15]}}, in_wdata[15:0] }:
-                  in_wdata;
+assign connect_data_in = (in_mem_ctl[7] == 1'b1) ?{ {24{in_writedat[7]}}, in_writedat[7:0] } :
+                  (in_mem_ctl[6] == 1'b1) ? { {16{in_writedat[15]}}, in_writedat[15:0] }:
+                  in_writedat;
 
 data_mem #(
     .RAM_WIDTH(32),
@@ -96,14 +96,14 @@ data_mem #(
 always @(posedge clk or posedge reset) begin
   
   if (reset == 1'b1) begin
-    out_rdata <= 0;
+    out_regdata <= 0;
     out_addr_in <= 0;
     out_reg_dst <= 0;
     out_wb <= 0;
     out_halt <= 0;
   end else begin
     out_halt <= in_halt;  
-    out_rdata <= (in_mem_ctl[5] == 1'b1) ? ( (in_mem_ctl[3] == 1'b0) ? {{24{1'b0}},connect_data_out[7:0]}
+    out_regdata <= (in_mem_ctl[5] == 1'b1) ? ( (in_mem_ctl[3] == 1'b0) ? {{24{1'b0}},connect_data_out[7:0]}
                   : { {24{connect_data_out[7]}}, connect_data_out[7:0]} ) :
                  (in_mem_ctl[4] == 1'b1) ? ( (in_mem_ctl[3] == 1'b0) ? {{16{1'b0}},connect_data_out[15:0]}
                   : { {16{connect_data_out[15]}}, connect_data_out[15:0]} ) :

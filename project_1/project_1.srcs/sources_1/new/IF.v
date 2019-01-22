@@ -21,11 +21,11 @@
 `define NB 32
 
 module IF( in_flush,
-           instruction_out,
-           adder_out,
-           in_pc_jump_addr,
-           in_pc_branch_addr,
-           in_pc_jump_reg,
+           out_instr,
+           out_adder,
+           in_jump_addr,
+           in_branch_addr,
+           in_jump_reg,
            in_wea_prog,
            in_prog_instruction,
            in_prog_addr,
@@ -40,9 +40,9 @@ module IF( in_flush,
 parameter NB = `NB;
 parameter NB_mem = 11;
 
- input [25 : 0] in_pc_jump_addr;
- input [NB - 1 : 0] in_pc_branch_addr;
- input [NB - 1 : 0] in_pc_jump_reg;
+ input [25 : 0] in_jump_addr;
+ input [NB - 1 : 0] in_branch_addr;
+ input [NB - 1 : 0] in_jump_reg;
  input in_ctl_jump;
  input in_ctl_jump_reg;
  input in_ctl_branch;
@@ -54,8 +54,8 @@ parameter NB_mem = 11;
  input [NB - 1 : 0] in_prog_instruction;
  input [NB_mem - 1 : 0] in_prog_addr;
  
- output reg [NB - 1 : 0] instruction_out;
- output reg [NB - 1 : 0] adder_out;
+ output reg [NB - 1 : 0] out_instr;
+ output reg [NB - 1 : 0] out_adder;
 
  reg [NB - 1 : 0] pc;
 
@@ -76,8 +76,8 @@ parameter NB_mem = 11;
  
  control_pc
  u_control_pc(.in_pc(connect_adder), 
-            .in_pc_jump(in_pc_jump_addr), 
-            .in_pc_jump_reg(in_pc_jump_reg), 
+            .in_pc_jump(in_jump_addr), 
+            .in_pc_jump_reg(in_jump_reg), 
             .in_pc_branch(in_pc_branch_addr),
             .in_jump(in_ctl_jump), 
             .in_jump_reg(in_ctl_jump_reg), 
@@ -105,25 +105,25 @@ parameter NB_mem = 11;
 always@(posedge clk or posedge reset)begin
     if(reset == 1'b1) begin
         pc <= 32'b0000;
-        adder_out <= 32'b0000;
+        out_adder <= 32'b0000;
     end
     else  begin
         if (in_ctl_stall == 1'b1 || connect_halt == 1'b1) begin
         pc <= pc;
-        adder_out <= adder_out;
+        out_adder <= out_adder;
         end
         else begin
             pc <= connect_pc;
-            adder_out <= connect_adder;
+            out_adder <= connect_adder;
         end
     end
 end
 
 always@(posedge clk or posedge reset)begin 
 if ( in_flush==1'b1 || reset)
-    instruction_out <= 32'h00000000;
+    out_instr <= 32'h00000000;
 else
-    instruction_out <= connect_instruction;
+    out_instr <= connect_instruction;
 
 end
 

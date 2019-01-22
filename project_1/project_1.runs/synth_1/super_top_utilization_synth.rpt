@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Sat Jan  5 14:54:48 2019
+| Date         : Tue Jan 22 11:50:37 2019
 | Host         : gustav-MacBookPro running 64-bit Ubuntu 16.04.1 LTS
 | Command      : report_utilization -file super_top_utilization_synth.rpt -pb super_top_utilization_synth.pb
 | Design       : super_top
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 3342 |     0 |     17600 | 18.99 |
-|   LUT as Logic             | 1230 |     0 |     17600 |  6.99 |
+| Slice LUTs*                | 3226 |     0 |     17600 | 18.33 |
+|   LUT as Logic             | 1114 |     0 |     17600 |  6.33 |
 |   LUT as Memory            | 2112 |     0 |      6000 | 35.20 |
 |     LUT as Distributed RAM | 2112 |     0 |           |       |
 |     LUT as Shift Register  |    0 |     0 |           |       |
-| Slice Registers            |  497 |     0 |     35200 |  1.41 |
-|   Register as Flip Flop    |  497 |     0 |     35200 |  1.41 |
+| Slice Registers            |  397 |     0 |     35200 |  1.13 |
+|   Register as Flip Flop    |  397 |     0 |     35200 |  1.13 |
 |   Register as Latch        |    0 |     0 |     35200 |  0.00 |
 | F7 Muxes                   | 1088 |     0 |      8800 | 12.36 |
 | F8 Muxes                   |   32 |     0 |      4400 |  0.73 |
@@ -57,9 +57,9 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 3     |          Yes |           - |        Reset |
+| 35    |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 494   |          Yes |       Reset |            - |
+| 362   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -151,19 +151,19 @@ Table of Contents
 +----------+------+---------------------+
 | RAMD64E  | 2048 |  Distributed Memory |
 | MUXF7    | 1088 |               MuxFx |
-| LUT6     |  703 |                 LUT |
-| FDRE     |  494 |        Flop & Latch |
-| LUT5     |  225 |                 LUT |
+| LUT6     |  682 |                 LUT |
+| FDRE     |  362 |        Flop & Latch |
 | LUT2     |  185 |                 LUT |
-| LUT3     |  180 |                 LUT |
-| LUT4     |  129 |                 LUT |
+| LUT5     |  183 |                 LUT |
+| LUT3     |  130 |                 LUT |
+| LUT4     |  115 |                 LUT |
 | RAMD32   |   96 |  Distributed Memory |
+| FDCE     |   35 |        Flop & Latch |
 | RAMS32   |   32 |  Distributed Memory |
 | MUXF8    |   32 |               MuxFx |
-| CARRY4   |   31 |          CarryLogic |
+| CARRY4   |   23 |          CarryLogic |
+| LUT1     |    8 |                 LUT |
 | OBUF     |    6 |                  IO |
-| LUT1     |    3 |                 LUT |
-| FDCE     |    3 |        Flop & Latch |
 | RAMB36E1 |    2 |        Block Memory |
 | BUFG     |    2 |               Clock |
 | OBUFT    |    1 |                  IO |
