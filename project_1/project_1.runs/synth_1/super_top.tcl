@@ -22,31 +22,31 @@ create_project -in_memory -part xc7z010iclg225-1L
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/gustav/ArquiGustavoWolfmann/project_1/project_1.cache/wt [current_project]
-set_property parent.project_path /home/gustav/ArquiGustavoWolfmann/project_1/project_1.xpr [current_project]
+set_property webtalk.parent_dir {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.cache/wt} [current_project]
+set_property parent.project_path {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/gustav/ArquiGustavoWolfmann/project_1/project_1.cache/ip [current_project]
+set_property ip_output_repo {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/EX.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/ID.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/IF.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/MEM.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/WB.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/adder.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/alu.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/alu_control.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/control_id.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/control_pc.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/cortocircuito.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/data_mem.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/estados.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/hazard.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/prog_mem.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/register_id.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/top_pipe.v
-  /home/gustav/ArquiGustavoWolfmann/project_1/project_1.srcs/sources_1/new/super_top.v
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/EX.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/ID.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/IF.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/MEM.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/WB.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/adder.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/alu.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/alu_control.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/control_id.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/control_pc.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/cortocircuito.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/estados.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/hazard.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/register_id.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/top_pipe.v}
+  {/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/super_top.v}
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

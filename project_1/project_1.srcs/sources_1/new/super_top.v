@@ -117,8 +117,7 @@ u_estados(
 
 //--------------------------------UART--------------------------------------------
 
-//uart#(.NBITS(8), .NUM_TICKS(16), .BAUD_RATE(9600), .CLK_RATE(40000000))
-//u_uart(.CLK_100MHZ(clk), .reset(reset), .tx_start(connect_tx_start),
-//        .rx(UART_TXD_IN), .data_in(connect_uart_tx_data), .data_out(connect_uart_rx_data),
-//        .rx_done_tick(connect_rx_done), .tx(UART_RXD_OUT), .tx_done_tick(connect_tx_done));
+UART u_uart(.clk(clk), .reset(reset), .tx_start(connect_tx_start),
+       .rx(UART_TXD_IN), .tx_in(connect_uart_tx_data), .rx_out(connect_uart_rx_data),
+       .rx_done_tick(connect_rx_done), .tx(UART_RXD_OUT), .tx_done_tick(connect_tx_done));
 endmodule
