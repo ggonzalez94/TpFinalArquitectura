@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Mar 11 16:54:16 2019
+# Process ID: 6682
+# Current directory: /home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.runs/synth_2
+# Command line: vivado -log super_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source super_top.tcl
+# Log file: /home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.runs/synth_2/super_top.vds
+# Journal file: /home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.runs/synth_2/vivado.jou
+#-----------------------------------------------------------
+source super_top.tcl -notrace

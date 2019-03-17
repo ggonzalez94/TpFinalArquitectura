@@ -1,0 +1,1153 @@
+
+*** Running vivado
+    with args -log super_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source super_top.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source super_top.tcl -notrace
+Command: synth_design -top super_top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 6689 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1282.500 ; gain = 84.887 ; free physical = 1468 ; free virtual = 13729
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'super_top' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/super_top.v:28]
+	Parameter NB_data bound to: 32 - type: integer 
+	Parameter NB_addr bound to: 5 - type: integer 
+	Parameter NB_UART bound to: 8 - type: integer 
+	Parameter NB_mem bound to: 11 - type: integer 
+	Parameter NB_latch12 bound to: 64 - type: integer 
+	Parameter NB_latch23 bound to: 192 - type: integer 
+	Parameter NB_latch34 bound to: 128 - type: integer 
+	Parameter NB_latch45 bound to: 64 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'top_pipe' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/top_pipe.v:27]
+	Parameter NB_data bound to: 32 - type: integer 
+	Parameter NB_addr bound to: 5 - type: integer 
+	Parameter NB_latch12 bound to: 64 - type: integer 
+	Parameter NB_latch23 bound to: 192 - type: integer 
+	Parameter NB_latch34 bound to: 128 - type: integer 
+	Parameter NB_latch45 bound to: 64 - type: integer 
+	Parameter NB_mem bound to: 11 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'IF' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/IF.v:23]
+	Parameter NB bound to: 32 - type: integer 
+	Parameter NB_mem bound to: 11 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'adder' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/adder.v:22]
+	Parameter NB bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'adder' (1#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/adder.v:22]
+INFO: [Synth 8-6157] synthesizing module 'control_pc' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/control_pc.v:24]
+	Parameter NB_data bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'control_pc' (2#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/control_pc.v:24]
+WARNING: [Synth 8-689] width (1) of port connection 'in_pc_branch' does not match port width (32) of module 'control_pc' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/IF.v:81]
+INFO: [Synth 8-6157] synthesizing module 'prog_mem' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:25]
+	Parameter NB_COL bound to: 4 - type: integer 
+	Parameter COL_WIDTH bound to: 8 - type: integer 
+	Parameter RAM_DEPTH bound to: 2048 - type: integer 
+	Parameter RAM_PERFORMANCE bound to: LOW_LATENCY - type: string 
+	Parameter INIT_FILE bound to: /home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/instructions.hex - type: string 
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+INFO: [Synth 8-3876] $readmem data file '/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/instructions.hex' is read successfully [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:51]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:96]
+INFO: [Synth 8-6155] done synthesizing module 'prog_mem' (3#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/prog_mem.v:25]
+WARNING: [Synth 8-3848] Net in_pc_branch_addr in module/entity IF does not have driver. [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/IF.v:81]
+INFO: [Synth 8-6155] done synthesizing module 'IF' (4#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/IF.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ID' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/ID.v:55]
+	Parameter NB_data bound to: 32 - type: integer 
+	Parameter NB_addr bound to: 5 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'control_id' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/control_id.v:24]
+	Parameter NB_op bound to: 6 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/control_id.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'control_id' (5#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/control_id.v:24]
+INFO: [Synth 8-6157] synthesizing module 'register_id' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/register_id.v:24]
+	Parameter NB_addr bound to: 5 - type: integer 
+	Parameter NB_data bound to: 32 - type: integer 
+	Parameter N_regs bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'register_id' (6#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/register_id.v:24]
+WARNING: [Synth 8-689] width (1) of port connection 'in_wdata' does not match port width (32) of module 'register_id' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/ID.v:140]
+INFO: [Synth 8-6157] synthesizing module 'hazard_detection' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/hazard.v:26]
+	Parameter NB_addr bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'hazard_detection' (7#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/hazard.v:26]
+WARNING: [Synth 8-3848] Net out_temp1 in module/entity ID does not have driver. [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/ID.v:104]
+WARNING: [Synth 8-3848] Net out_temp2 in module/entity ID does not have driver. [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/ID.v:105]
+WARNING: [Synth 8-3848] Net in_wdata in module/entity ID does not have driver. [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/ID.v:140]
+INFO: [Synth 8-6155] done synthesizing module 'ID' (8#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/ID.v:55]
+INFO: [Synth 8-6157] synthesizing module 'EX' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/EX.v:26]
+	Parameter NB_data bound to: 32 - type: integer 
+	Parameter NB_addr bound to: 5 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'alu' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/alu.v:27]
+	Parameter NB_A bound to: 32 - type: integer 
+	Parameter NB_B bound to: 32 - type: integer 
+	Parameter NB_ALU_CODE bound to: 4 - type: integer 
+	Parameter NB_X bound to: 32 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/alu.v:54]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (9#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/alu.v:27]
+INFO: [Synth 8-6157] synthesizing module 'alu_control' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/alu_control.v:26]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/alu_control.v:39]
+INFO: [Synth 8-6155] done synthesizing module 'alu_control' (10#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/alu_control.v:26]
+INFO: [Synth 8-6157] synthesizing module 'cortocircuito' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/cortocircuito.v:23]
+	Parameter NB_addr bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cortocircuito' (11#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/cortocircuito.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'EX' (12#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/EX.v:26]
+INFO: [Synth 8-6157] synthesizing module 'MEM' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/MEM.v:25]
+	Parameter NB_data bound to: 32 - type: integer 
+	Parameter NB_addr bound to: 5 - type: integer 
+	Parameter NB_mem bound to: 11 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'data_mem' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:25]
+	Parameter RAM_WIDTH bound to: 32 - type: integer 
+	Parameter RAM_DEPTH bound to: 2048 - type: integer 
+	Parameter RAM_PERFORMANCE bound to: LOW_LATENCY - type: string 
+	Parameter INIT_FILE bound to: E:/datos_mips/data_mem.txt - type: string 
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:93]
+INFO: [Synth 8-6155] done synthesizing module 'data_mem' (13#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/data_mem.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'MEM' (14#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/MEM.v:25]
+INFO: [Synth 8-6157] synthesizing module 'WB' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/WB.v:25]
+	Parameter NB_data bound to: 32 - type: integer 
+	Parameter NB_addr bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'WB' (15#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/WB.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'top_pipe' (16#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/top_pipe.v:27]
+INFO: [Synth 8-6157] synthesizing module 'estados' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/estados.v:26]
+	Parameter NB_UART bound to: 8 - type: integer 
+	Parameter NB_data bound to: 32 - type: integer 
+	Parameter NB_latch_12 bound to: 64 - type: integer 
+	Parameter NB_latch_23 bound to: 192 - type: integer 
+	Parameter NB_latch_34 bound to: 128 - type: integer 
+	Parameter NB_latch_45 bound to: 64 - type: integer 
+	Parameter NB_mem bound to: 11 - type: integer 
+	Parameter N_CHAN_latch_12 bound to: 1 - type: integer 
+	Parameter N_CHAN_latch_23 bound to: 5 - type: integer 
+	Parameter N_CHAN_latch_34 bound to: 3 - type: integer 
+	Parameter N_CHAN_latch_45 bound to: 1 - type: integer 
+	Parameter N_CHAN bound to: 17 - type: integer 
+	Parameter NB_SELECT bound to: 7 - type: integer 
+	Parameter STATE_IDLE bound to: 3'b000 
+	Parameter STATE_PROGRAMMING bound to: 3'b001 
+	Parameter STATE_WAITING bound to: 3'b010 
+	Parameter STATE_COTINUOUS bound to: 3'b011 
+	Parameter STATE_SEND_DATA bound to: 3'b100 
+	Parameter STATE_STEP bound to: 3'b101 
+	Parameter BYTE_1 bound to: 3'b000 
+	Parameter BYTE_2 bound to: 3'b001 
+	Parameter BYTE_3 bound to: 3'b010 
+	Parameter BYTE_4 bound to: 3'b011 
+	Parameter START bound to: 3'b100 
+	Parameter start bound to: 8'b00000001 
+	Parameter continuous bound to: 8'b00000010 
+	Parameter step_by bound to: 8'b00000011 
+	Parameter reset_mips bound to: 8'b00000100 
+	Parameter step bound to: 8'b00000101 
+	Parameter reprogramar bound to: 8'b00000110 
+WARNING: [Synth 8-6090] variable 'out_reg_prox' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/estados.v:244]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/estados.v:258]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/estados.v:237]
+WARNING: [Synth 8-6014] Unused sequential element halt_flag_reg was removed.  [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/estados.v:397]
+WARNING: [Synth 8-6014] Unused sequential element rx_ant_reg was removed.  [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/estados.v:409]
+INFO: [Synth 8-6155] done synthesizing module 'estados' (17#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/estados.v:26]
+INFO: [Synth 8-6157] synthesizing module 'UART' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/UART.v:21]
+INFO: [Synth 8-6157] synthesizing module 'uart_baudrate' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/uart_baudrate.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'uart_baudrate' (18#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/uart_baudrate.v:21]
+INFO: [Synth 8-6157] synthesizing module 'Rx' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/Rx.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'Rx' (19#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/Rx.v:21]
+INFO: [Synth 8-6157] synthesizing module 'Tx' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/Tx.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'Tx' (20#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/Tx.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'UART' (21#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/UART.v:21]
+WARNING: [Synth 8-3848] Net clk in module/entity super_top does not have driver. [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/super_top.v:84]
+INFO: [Synth 8-6155] done synthesizing module 'super_top' (22#1) [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/super_top.v:28]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[31]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[30]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[29]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[28]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[27]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[26]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[25]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[24]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[23]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[22]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[21]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[20]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[19]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[18]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[17]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[16]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[15]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[14]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[13]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[12]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[11]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[10]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[9]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[8]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[7]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[6]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[5]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[4]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[3]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[2]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[1]
+WARNING: [Synth 8-3331] design estados has unconnected port in_pc[0]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[31]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[30]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[29]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[28]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[27]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[26]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[25]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[24]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[23]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[22]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[21]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[20]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[19]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[18]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[17]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[16]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[15]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[14]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[13]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[12]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[11]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[10]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[9]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[8]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[7]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[6]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[5]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[4]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[3]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[2]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[1]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp1[0]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[31]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[30]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[29]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[28]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[27]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[26]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[25]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[24]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[23]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[22]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[21]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[20]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[19]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[18]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[17]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[16]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[15]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[14]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[13]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[12]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[11]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[10]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[9]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[8]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[7]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[6]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[5]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[4]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[3]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[2]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[1]
+WARNING: [Synth 8-3331] design ID has unconnected port out_temp2[0]
+WARNING: [Synth 8-3331] design ID has unconnected port in_writedata[31]
+WARNING: [Synth 8-3331] design ID has unconnected port in_writedata[30]
+WARNING: [Synth 8-3331] design ID has unconnected port in_writedata[29]
+WARNING: [Synth 8-3331] design ID has unconnected port in_writedata[28]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1328.125 ; gain = 130.512 ; free physical = 1468 ; free virtual = 13726
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin u_control_pc:in_pc_branch[0] to constant 0 [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/IF.v:78]
+WARNING: [Synth 8-3295] tying undriven pin u_register_id:in_wdata[0] to constant 0 [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/ID.v:138]
+WARNING: [Synth 8-3295] tying undriven pin u_estados:clk to constant 0 [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/super_top.v:110]
+WARNING: [Synth 8-3295] tying undriven pin u_uart:clk to constant 0 [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/super_top.v:120]
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1328.125 ; gain = 130.512 ; free physical = 1467 ; free virtual = 13723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1328.125 ; gain = 130.512 ; free physical = 1467 ; free virtual = 13723
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/constrs_1/new/pines.xdc]
+Finished Parsing XDC File [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/constrs_1/new/pines.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/constrs_1/new/pines.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/super_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/super_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1705.945 ; gain = 0.000 ; free physical = 932 ; free virtual = 13260
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:25 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 989 ; free virtual = 13297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:25 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 989 ; free virtual = 13297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:25 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 990 ; free virtual = 13299
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "out_ex" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_mem" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_wb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/alu.v:54]
+INFO: [Synth 8-5587] ROM size for "out_alu_code" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-802] inferred FSM for state register 'estado_actual_reg' in module 'estados'
+INFO: [Synth 8-5546] ROM "tx_start" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "estado_proximo" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "estado_proximo_prog" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "rd_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mux_sel_prox" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "wea_prog" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "tx_start" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "out_reset_prox" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "out_send_ok" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "estado_proximo" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "tick" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'estado_reg' in module 'Rx'
+INFO: [Synth 8-5544] ROM "rx_done_tick" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "tick_counter" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cant_recv" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cant_recv" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "estado" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "estado" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "estado" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'estado_reg' in module 'Tx'
+INFO: [Synth 8-5544] ROM "tx_done_tick" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "tick_counter" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "estado" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "estado" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "estado" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                              000 |                              000
+       STATE_PROGRAMMING |                              001 |                              001
+           STATE_WAITING |                              010 |                              010
+         STATE_COTINUOUS |                              011 |                              011
+         STATE_SEND_DATA |                              100 |                              100
+              STATE_STEP |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'estado_actual_reg' using encoding 'sequential' in module 'estados'
+WARNING: [Synth 8-327] inferring latch for variable 'wea_prog_reg' [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/estados.v:192]
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'estado_reg' in module 'fsm13B3E6800'
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'estado_reg' in module 'fsmB8C49400'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 979 ; free virtual = 13288
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 3     
+	   2 Input      3 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 17    
+	               11 Bit    Registers := 3     
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                7 Bit    Registers := 1     
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 12    
++---RAMs : 
+	              64K Bit         RAMs := 2     
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 24    
+	  12 Input     32 Bit        Muxes := 1     
+	   6 Input     32 Bit        Muxes := 4     
+	   2 Input     11 Bit        Muxes := 2     
+	   6 Input     11 Bit        Muxes := 2     
+	   5 Input     10 Bit        Muxes := 1     
+	  20 Input     10 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 1     
+	  20 Input      9 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 2     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
+	   6 Input      8 Bit        Muxes := 2     
+	   2 Input      7 Bit        Muxes := 1     
+	   3 Input      7 Bit        Muxes := 1     
+	   6 Input      7 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 6     
+	   4 Input      5 Bit        Muxes := 1     
+	   6 Input      5 Bit        Muxes := 2     
+	  22 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 7     
+	   6 Input      4 Bit        Muxes := 3     
+	   2 Input      3 Bit        Muxes := 6     
+	   6 Input      3 Bit        Muxes := 3     
+	   3 Input      3 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	  20 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 30    
+	   6 Input      1 Bit        Muxes := 28    
+	   3 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module super_top 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module adder 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+Module control_pc 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+Module prog_mem 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---RAMs : 
+	              64K Bit         RAMs := 1     
+Module IF 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
+Module control_id 
+Detailed RTL Component Info : 
++---Muxes : 
+	   5 Input     10 Bit        Muxes := 1     
+	  20 Input     10 Bit        Muxes := 1     
+	  20 Input      9 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	  20 Input      2 Bit        Muxes := 1     
+Module register_id 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
++---RAMs : 
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+Module ID 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                5 Bit    Registers := 4     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 4     
+	   2 Input      2 Bit        Muxes := 1     
+Module alu 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	  12 Input     32 Bit        Muxes := 1     
+Module alu_control 
+Detailed RTL Component Info : 
++---Muxes : 
+	  22 Input      4 Bit        Muxes := 1     
+Module cortocircuito 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+Module EX 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                9 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 10    
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   4 Input      5 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+Module data_mem 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---RAMs : 
+	              64K Bit         RAMs := 1     
+Module MEM 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 6     
+Module WB 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 1     
+Module estados 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 3     
+	               11 Bit    Registers := 3     
+	                7 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   6 Input     32 Bit        Muxes := 4     
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
+	   6 Input     11 Bit        Muxes := 2     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   3 Input      7 Bit        Muxes := 1     
+	   6 Input      7 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 4     
+	   6 Input      3 Bit        Muxes := 2     
+	   3 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 8     
+	   6 Input      1 Bit        Muxes := 16    
+	   3 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module uart_baudrate 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module Rx 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+	   6 Input      8 Bit        Muxes := 2     
+	   6 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 4     
+	   6 Input      4 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 9     
+	   3 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 5     
+Module Tx 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 2     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   6 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	   6 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 9     
+	   6 Input      1 Bit        Muxes := 7     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-6014] Unused sequential element u_ID/u_register_id/out_data1_reg was removed.  [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/register_id.v:88]
+WARNING: [Synth 8-6014] Unused sequential element u_ID/u_register_id/out_data2_reg was removed.  [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/register_id.v:89]
+WARNING: [Synth 8-6014] Unused sequential element u_EX/out_sign_reg was removed.  [/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.srcs/sources_1/new/EX.v:155]
+INFO: [Synth 8-5546] ROM "u_ID/u_control_id/out_ex" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_ID/u_control_id/out_mem" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tx_start" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "estado_proximo" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rd_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "baudrate/tick" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-4652] Swapped enable and write-enable on 2 RAM instances of RAM u_IF/u_prog_mem/BRAM_reg to conserve power
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[15]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[23]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[23]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[31]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[22]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[22]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[30]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[30]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[21]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[21]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[29]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[29]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[20]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[20]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[28]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[28]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[19]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[19]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[27]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[27]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[18]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[18]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[26]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[26]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[17]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[17]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[25]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[25]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[16]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[16]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_uart/\tx_module/estado_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_estados/wea_prog_reg)
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/d_in_aux_reg[7]' (FD) to 'u_uart/tx_module/d_in_aux_reg[6]'
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/d_in_aux_reg[6]' (FD) to 'u_uart/tx_module/d_in_aux_reg[5]'
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/d_in_aux_reg[5]' (FD) to 'u_uart/tx_module/d_in_aux_reg[4]'
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/d_in_aux_reg[4]' (FD) to 'u_uart/tx_module/d_in_aux_reg[3]'
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/d_in_aux_reg[3]' (FD) to 'u_uart/tx_module/d_in_aux_reg[2]'
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/d_in_aux_reg[2]' (FD) to 'u_uart/tx_module/d_in_aux_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_uart/\tx_module/d_in_aux_reg[1] )
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/estado_reg[5]' (FDE) to 'u_uart/tx_module/estado_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_uart/\tx_module/estado_reg[1] )
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/estado_reg[1]' (FDE) to 'u_uart/tx_module/estado_reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_uart/\tx_module/estado_reg[2] )
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/cant_enviados_reg[2]' (FDE) to 'u_uart/tx_module/cant_enviados_reg[3]'
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/cant_enviados_reg[0]' (FDE) to 'u_uart/tx_module/cant_enviados_reg[3]'
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/cant_enviados_reg[1]' (FDE) to 'u_uart/tx_module/cant_enviados_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_uart/\tx_module/cant_enviados_reg[3] )
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/estado_reg[2]' (FDE) to 'u_uart/tx_module/estado_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_uart/\tx_module/estado_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_uart/\tx_module/estado_reg[0] )
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/estado_reg[3]' (FDE) to 'u_uart/tx_module/estado_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_uart/\tx_module/estado_reg[4] )
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/cant_enviados_reg[3]' (FDE) to 'u_uart/tx_module/tick_counter_reg[2]'
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/tick_counter_reg[2]' (FDE) to 'u_uart/tx_module/tick_counter_reg[3]'
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/tick_counter_reg[3]' (FDE) to 'u_uart/tx_module/tick_counter_reg[1]'
+INFO: [Synth 8-3886] merging instance 'u_uart/tx_module/tick_counter_reg[1]' (FDE) to 'u_uart/tx_module/tick_counter_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_uart/\tx_module/tick_counter_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_uart/\tx_module/tx_reg )
+WARNING: [Synth 8-3332] Sequential element (u_ID/out_ex_reg[1]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_ID/out_ex_reg[0]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[31]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[30]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[29]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[28]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[27]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[26]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[25]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[24]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[23]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[22]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[21]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[20]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[19]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[18]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[17]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[16]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[15]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[14]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[13]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[12]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[11]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[10]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[9]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[8]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[7]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[6]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[5]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[4]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[3]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[2]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[1]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (u_EX/out_branch_reg[0]) is unused and will be removed from module top_pipe.
+WARNING: [Synth 8-3332] Sequential element (wea_prog_reg) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (estado_actual_prog_reg[2]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (estado_actual_prog_reg[1]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (estado_actual_prog_reg[0]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[31]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[30]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[29]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[28]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[27]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[26]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[25]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[24]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[23]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[22]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[21]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[20]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[19]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[18]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[17]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[16]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[15]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[14]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[13]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[12]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[11]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[10]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[9]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[8]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[7]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[6]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[5]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[4]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[3]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[2]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[1]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_reg_reg[0]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (mem_select_reg) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (mux_select_reg[6]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (mux_select_reg[5]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (mux_select_reg[4]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (mux_select_reg[3]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (mux_select_reg[2]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (mux_select_reg[1]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (mux_select_reg[0]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[10]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[9]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[8]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[7]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[6]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[5]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[4]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[3]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[2]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[1]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (out_rd_addr_reg[0]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[31]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[30]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[29]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[28]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[27]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[26]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[25]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[24]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[23]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[22]) is unused and will be removed from module estados.
+WARNING: [Synth 8-3332] Sequential element (clk_counter_reg[21]) is unused and will be removed from module estados.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[2]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[1]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[0]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[3]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[4]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[5]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[6]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[8]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[9]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[10]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[11]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[12]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[13]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[14]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[16]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[17]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[18]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[19]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[20]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[21]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[22]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[23]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[24]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[25]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[26]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[27]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[28]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[29]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[30]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[7]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_EX/out_write_data_reg[15]' (FDC) to 'u_top_pipe/u_EX/out_write_data_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_top_pipe/\u_EX/out_write_data_reg[31] )
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_shamt_reg[0]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[6]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_shamt_reg[1]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[7]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_rd_reg[4]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[24]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_rd_reg[3]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_rd_reg[2]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[13]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_rd_reg[1]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[12]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_rd_reg[0]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[11]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_shamt_reg[3]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[9]'
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_shamt_reg[4]' (FDC) to 'u_top_pipe/u_ID/out_inmediato_reg[10]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:51 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 983 ; free virtual = 13305
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping  Report (see note below)
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|prog_mem:   | BRAM_reg   | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The tale above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++------------+----------------------------------+-----------+----------------------+-------------------+
+|Module Name | RTL Object                       | Inference | Size (Depth x Width) | Primitives        | 
++------------+----------------------------------+-----------+----------------------+-------------------+
+|u_top_pipe  | u_ID/u_register_id/registros_reg | Implied   | 32 x 32              | RAM32M x 16       | 
+|u_top_pipe  | u_MEM/u_data_mem/BRAM_reg        | Implied   | 2 K x 32             | RAM128X1D x 512   | 
++------------+----------------------------------+-----------+----------------------+-------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance u_top_pipe/i_0/u_IF/u_prog_mem/BRAM_reg_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance u_top_pipe/i_0/u_IF/u_prog_mem/BRAM_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:58 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 858 ; free virtual = 13187
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:58 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 857 ; free virtual = 13185
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping  Report
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|prog_mem:   | BRAM_reg   | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping  Report
++------------+----------------------------------+-----------+----------------------+-------------------+
+|Module Name | RTL Object                       | Inference | Size (Depth x Width) | Primitives        | 
++------------+----------------------------------+-----------+----------------------+-------------------+
+|u_top_pipe  | u_ID/u_register_id/registros_reg | Implied   | 32 x 32              | RAM32M x 16       | 
+|u_top_pipe  | u_MEM/u_data_mem/BRAM_reg        | Implied   | 2 K x 32             | RAM128X1D x 512   | 
++------------+----------------------------------+-----------+----------------------+-------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'u_top_pipe/u_ID/out_inmediato_reg[8]' (FDC) to 'u_top_pipe/u_ID/out_shamt_reg[2]'
+INFO: [Synth 8-4480] The timing for the instance u_top_pipe/u_IF/u_prog_mem/BRAM_reg_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance u_top_pipe/u_IF/u_prog_mem/BRAM_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:43 ; elapsed = 00:00:59 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 851 ; free virtual = 13179
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:44 ; elapsed = 00:01:00 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 851 ; free virtual = 13179
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:44 ; elapsed = 00:01:00 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 851 ; free virtual = 13179
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:44 ; elapsed = 00:01:00 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 851 ; free virtual = 13179
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:44 ; elapsed = 00:01:00 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 851 ; free virtual = 13179
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:01:00 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 851 ; free virtual = 13180
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:44 ; elapsed = 00:01:00 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 851 ; free virtual = 13180
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |     1|
+|2     |CARRY4     |    23|
+|3     |LUT1       |     9|
+|4     |LUT2       |   144|
+|5     |LUT3       |   133|
+|6     |LUT4       |   139|
+|7     |LUT5       |   175|
+|8     |LUT6       |   646|
+|9     |MUXF7      |    64|
+|10    |MUXF8      |    32|
+|11    |RAM128X1D  |   512|
+|12    |RAM32M     |    16|
+|13    |RAMB36E1   |     1|
+|14    |RAMB36E1_1 |     1|
+|15    |FDCE       |    35|
+|16    |FDRE       |   362|
+|17    |IBUF       |     1|
+|18    |OBUF       |     7|
++------+-----------+------+
+
+Report Instance Areas: 
++------+--------------------+------------+------+
+|      |Instance            |Module      |Cells |
++------+--------------------+------------+------+
+|1     |top                 |            |  2301|
+|2     |  u_estados         |estados     |    11|
+|3     |  u_top_pipe        |top_pipe    |  2280|
+|4     |    u_EX            |EX          |   165|
+|5     |      u_alu         |alu         |    15|
+|6     |    u_ID            |ID          |   911|
+|7     |      u_register_id |register_id |    48|
+|8     |    u_IF            |IF          |   246|
+|9     |      u_adder       |adder       |     8|
+|10    |      u_prog_mem    |prog_mem    |    11|
+|11    |    u_MEM           |MEM         |   958|
+|12    |      u_data_mem    |data_mem    |   768|
++------+--------------------+------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:44 ; elapsed = 00:01:00 . Memory (MB): peak = 1705.945 ; gain = 508.332 ; free physical = 851 ; free virtual = 13180
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 258 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 1705.945 ; gain = 130.512 ; free physical = 908 ; free virtual = 13236
+Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:01:00 . Memory (MB): peak = 1705.953 ; gain = 508.332 ; free physical = 908 ; free virtual = 13236
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 650 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 2 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 528 instances were transformed.
+  RAM128X1D => RAM128X1D (RAMD64E, RAMD64E, MUXF7, MUXF7, RAMD64E, RAMD64E): 512 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 16 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+195 Infos, 306 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:47 ; elapsed = 00:01:02 . Memory (MB): peak = 1737.961 ; gain = 546.188 ; free physical = 902 ; free virtual = 13230
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/project_1/project_1.runs/synth_2/super_top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file super_top_utilization_synth.rpt -pb super_top_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.16 . Memory (MB): peak = 1761.973 ; gain = 0.000 ; free physical = 893 ; free virtual = 13222
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 11 16:55:26 2019...

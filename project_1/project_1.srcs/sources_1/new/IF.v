@@ -89,8 +89,8 @@ parameter NB_mem = 11;
     .COL_WIDTH(8),
     .RAM_DEPTH(2048),                     // Specify RAM depth (number of entries)
     .RAM_PERFORMANCE("LOW_LATENCY"), // Select "HIGH_PERFORMANCE" or "LOW_LATENCY" 
-    .INIT_FILE("/home/gustav/ArquiGustavoWolfmann/instructions.hex")                                            // Specify name/location of RAM initialization file if using one (leave blank if not)
-    // .INIT_FILE("E:/datos_mips/instructions.hex")                                            // Specify name/location of RAM initialization file if using one (leave blank if not)
+    //.INIT_FILE("/home/gustav/ArquiGustavoWolfmann/instructions.hex")                                            // Specify name/location of RAM initialization file if using one (leave blank if not)
+    .INIT_FILE("/home/fabian/Documents/Facultad/Arquitectura/Trabajo Practico Final/TpFinalArquitectura/instructions.hex")                                           // Specify name/location of RAM initialization file if using one (leave blank if not)
   ) u_prog_mem (
     .addra(connect_addr_mem),   // Write address bus, width determined from RAM_DEPTH
     .dina(in_prog_instruction),     // RAM input data, width determined from RAM_WIDTH
